@@ -60,13 +60,14 @@ export default NextAuth({
         async jwt({token, account, profile, user}) {
             // Persist the OAuth access_token and or the user id to the token right after signin
             if (account) {
-                token.accessToken = user.token
+                const typeUser = user as any;
+                token.accessToken = typeUser.token
                 console.log(token, 'toto')
             }
             return token
         },
 
-        async session({session, token, user}) {
+        async session({session, token, user}: any) {
             // Send properties to the client, like an access_token and user id from a provider.
             session.accessToken = token.accessToken
             console.log(session)
