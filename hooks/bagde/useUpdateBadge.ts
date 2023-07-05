@@ -1,20 +1,21 @@
 import {useCallback, useState} from "react";
 import {fetchWrapper} from "@/utils/fetchWrapper";
-import {getSession} from "next-auth/react";
-import { Instrument } from "@/types/instrumentType";
+import { getSession } from "next-auth/react";
+import { Badge } from "@/types/badgeType";
 
-const useCreateInstrument = <T>(): {
+const useUpdateBadge = <T>(): {
     data: T | null;
     error: any;
     isLoading: boolean;
-    fetchData: (instrument: Instrument) => Promise<void>;
+    fetchData: (badgeData: Badge) => Promise<void>;
 } => {
     const [data, setData] = useState<T | null>(null);
     const [error, setError] = useState<any>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}instrument/create`;
 
-    const fetchData = useCallback(async (instrument: Instrument) => {
+    const fetchData = useCallback(async (badgeData: Badge) => {
+        const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}badge/update/${badgeData.id}`;
+
         setIsLoading(true);
         setError(null);
         setData(null);
@@ -24,14 +25,17 @@ const useCreateInstrument = <T>(): {
             const token = session?.accessToken;
 
             const config = {
-                method: "POST",
+                method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    "name": instrument.name,
-                    "id_category": instrument.id_category
+                    "id": badgeData.id,
+                    "name": badgeData.name,
+                    "description": badgeData.description,
+                    "points": badgeData.points,
+                    "display_img": badgeData.display_img,
                 })
             };
             const result = await fetchWrapper<T>(endpoint, config);
@@ -44,4 +48,4 @@ const useCreateInstrument = <T>(): {
     }, []);
     return {data, error, isLoading, fetchData};
 };
-export default useCreateInstrument;
+export default useUpdateBadge;
