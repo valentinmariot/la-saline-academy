@@ -1,19 +1,20 @@
-import { useCallback, useState } from "react";
-import { fetchWrapper } from "@/utils/fetchWrapper";
-import { getSession } from "next-auth/react";
+import {useCallback, useState} from "react";
+import {fetchWrapper} from "@/utils/fetchWrapper";
+import {getSession} from "next-auth/react";
+import {Info} from "@/types/infoType";
 
 const useUpdateInfo = <T>(): {
-  data: T | null;
-  error: any;
-  isLoading: boolean;
-  fetchData: (infoData: any) => Promise<void>;
+    data: T | null;
+    error: any;
+    isLoading: boolean;
+    fetchData: (infoData: Info) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (infoData: any) => {
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/update/${infoData.id}`;
+    const fetchData = useCallback(async (infoData: Info) => {
+        const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/update/${infoData.id}`;
 
     setIsLoading(true);
     setError(null);

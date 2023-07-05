@@ -12,8 +12,8 @@ const useGetAllInfos = <T>(): {
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async () => {
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/getAll/`;
+    const fetchData = useCallback(async () => {
+        const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/getAll`;
 
     setIsLoading(true);
     setError(null);
