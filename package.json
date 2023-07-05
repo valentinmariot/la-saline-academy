@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "content:init": "cd content && git submodule init && git submodule update && cd ..",
+    "content:update": "git submodule update --remote",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "check": "npx tsc --noEmit && npx eslint . && npx prettier --write"
   },
   "dependencies": {
     "next": "13.4.7",
