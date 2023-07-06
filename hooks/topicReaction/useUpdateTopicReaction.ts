@@ -5,12 +5,12 @@ import { TopicReaction } from "@/types/topicReactionType";
 
 const useUpdateTopicReaction = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: (messageReactionData: TopicReaction) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchData = useCallback(async (messageReactionData: TopicReaction) => {

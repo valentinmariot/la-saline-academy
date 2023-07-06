@@ -5,12 +5,12 @@ import { Challenge } from "@/types/challengeType";
 
 const useUpdateUser = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: (challengeData: Challenge) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchData = useCallback(async (challengeData: Challenge) => {

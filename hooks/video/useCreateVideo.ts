@@ -1,19 +1,19 @@
 import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
-
+import { Video } from "@/types/videoType";
 const useCreateVideo = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (link: string) => Promise<void>;
+  fetchData: (videoData: Video) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}video/create`;
 
-  const fetchData = useCallback(async (link: string) => {
+  const fetchData = useCallback(async (videoData: Video) => {
     setIsLoading(true);
     setError(null);
     setData(null);
@@ -30,7 +30,7 @@ const useCreateVideo = <T>(): {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          link: link,
+          link: videoData.link,
         }),
       };
       const result = await fetchWrapper<T>(endpoint, config);

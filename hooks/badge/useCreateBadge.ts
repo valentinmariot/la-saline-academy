@@ -5,12 +5,12 @@ import { Badge } from "@/types/badgeType";
 
 const useCreateBadge = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: (badge: Badge) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}badge/create`;
 

@@ -1,18 +1,19 @@
 import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
+import { Video } from "@/types/videoType";
 
 const useUpdateVideo = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (videoData: any) => Promise<void>;
+  fetchData: (videoData: Video) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (videoData: any) => {
+  const fetchData = useCallback(async (videoData: Video) => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}video/update/${videoData.id}`;
 
     setIsLoading(true);

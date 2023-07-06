@@ -5,12 +5,12 @@ import { Timestamp } from "@/types/timestampType";
 
 const useUpdateTimestamp = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: (timestampData: Timestamp) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchData = useCallback(async (timestampData: Timestamp) => {

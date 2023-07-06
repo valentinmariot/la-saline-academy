@@ -1,19 +1,20 @@
 import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
+import { Plan } from "@/types/planType";
 
 const useCreatePlan = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (planData: any) => Promise<void>;
+  fetchData: (planData: Plan) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}plan/create`;
 
-  const fetchData = useCallback(async (planData: any) => {
+  const fetchData = useCallback(async (planData: Plan) => {
     setIsLoading(true);
     setError(null);
     setData(null);
