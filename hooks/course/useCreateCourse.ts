@@ -14,13 +14,15 @@ const useCreateCourse = <T>(): {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}categories/create`;
 
-    const fetchData = useCallback(async (cours: Course) => {
-        setIsLoading(true);
-        setError(null);
-        setData(null);
-        try {
-            const session = await getSession();
-            const token = session?.accessToken;
+  const fetchData = useCallback(async (cours: Course) => {
+    setIsLoading(true);
+    setError(null);
+    setData(null);
+    try {
+      const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const token = session?.accessToken;
 
       const config = {
         method: "POST",

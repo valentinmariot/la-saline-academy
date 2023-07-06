@@ -15,27 +15,29 @@ const useGetAllLesson = <T>(): {
   const fetchData = useCallback(async () => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}lesson/getAll`;
 
-        setIsLoading(true);
-        setError(null);
-        setData(null);
-        try {
-            const session = await getSession();
-            const token = session?.accessToken;
-            const config = {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-            };
-            const result = await fetchWrapper<T>(endpoint, config);
-            setData(result);
-        } catch (error) {
-            setError(error);
-        } finally {
-            setIsLoading(false);
-        }
-    }, []);
-    return {data, error, isLoading, fetchData};
+    setIsLoading(true);
+    setError(null);
+    setData(null);
+    try {
+      const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const token = session?.accessToken;
+      const config = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const result = await fetchWrapper<T>(endpoint, config);
+      setData(result);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+  return { data, error, isLoading, fetchData };
 };
 export default useGetAllLesson;

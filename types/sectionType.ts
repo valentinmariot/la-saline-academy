@@ -1,5 +1,5 @@
 export type Section = {
-    id?: number,
-    name: string,
-    order: number,
-}
+  id?: number;
+  name: string;
+  order: number;
+};

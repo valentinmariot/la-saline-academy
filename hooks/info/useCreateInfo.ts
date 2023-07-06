@@ -1,26 +1,28 @@
-import {useCallback, useState} from "react";
-import {fetchWrapper} from "@/utils/fetchWrapper";
-import {getSession} from "next-auth/react";
-import {Info} from "@/types/infoType";
+import { useCallback, useState } from "react";
+import { fetchWrapper } from "@/utils/fetchWrapper";
+import { getSession } from "next-auth/react";
+import { Info } from "@/types/infoType";
 
 const useCreateInfo = <T>(): {
-    data: T | null;
-    error: any;
-    isLoading: boolean;
-    fetchData: (infoData: Info) => Promise<void>;
+  data: T | null;
+  error: any;
+  isLoading: boolean;
+  fetchData: (infoData: Info) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/create`;
 
-    const fetchData = useCallback(async (infoData: Info) => {
-        setIsLoading(true);
-        setError(null);
-        setData(null);
-        try {
-            const session = await getSession();
-            const token = session?.accessToken;
+  const fetchData = useCallback(async (infoData: Info) => {
+    setIsLoading(true);
+    setError(null);
+    setData(null);
+    try {
+      const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const token = session?.accessToken;
 
       const config = {
         method: "POST",

@@ -1,6 +1,6 @@
 export type Forum = {
-    id?: number,
-    name: string,
-    authorId: number,
-    sectionId: number,
-}
+  id?: number;
+  name: string;
+  authorId: number;
+  sectionId: number;
+};
