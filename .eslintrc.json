@@ -43,6 +43,7 @@
     "global-require": "off", // https://eslint.org/docs/rules/global-require
     "import/no-dynamic-require": "off", // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md
     "no-inner-declarations": "off", // https://eslint.org/docs/rules/no-inner-declarations
+   "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
     "arrow-parens": ["warn", "always"],
     // New rules
     "max-len": [
