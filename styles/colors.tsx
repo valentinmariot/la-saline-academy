@@ -1,5 +1,5 @@
 export const Colors = {
-  "red": {
+  red: {
     "50": "#FDEAE7",
     "100": "#FAC3BC",
     "200": "#F79D91",
@@ -11,7 +11,7 @@ export const Colors = {
     "800": "#5F1107",
     "900": "#300803",
   },
-  "purple": {
+  purple: {
     "50": "#F1E7FE",
     "100": "#D8BBFC",
     "200": "#BF8FFA",
@@ -23,7 +23,7 @@ export const Colors = {
     "800": "#2F0462",
     "900": "#170231",
   },
-  "green": {
+  green: {
     "50": "#EDF7F0",
     "100": "#CDEAD6",
     "200": "#ACDCBB",
@@ -35,7 +35,7 @@ export const Colors = {
     "800": "#1E482B",
     "900": "#0F2416",
   },
-  "gray": {
+  gray: {
     "50": "#F2F2F2",
     "100": "#DBDBDB",
     "200": "#C4C4C4",
@@ -45,6 +45,6 @@ export const Colors = {
     "600": "#666666",
     "700": "#4D4D4D",
     "800": "#333333",
-    "900": "#1A1A1A"
+    "900": "#1A1A1A",
   },
 };

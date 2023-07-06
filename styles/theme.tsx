@@ -1,27 +1,26 @@
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
-import { Colors } from './colors';
-import { Breakpoints } from './breakpoints';
-import { Buttons } from './components/buttons';
+import { extendTheme } from "@chakra-ui/react";
+import { Colors } from "./colors";
+import { Breakpoints } from "./breakpoints";
+import { Buttons } from "./components/buttons";
 
 const styles = {
-  global: (props: object) => ({
+  global: () => ({
     html: {
-      scrollBehavior: 'smooth',
+      scrollBehavior: "smooth",
     },
     body: {
-      color: 'gray.50',
-      bg: 'gray.900',
+      color: "gray.50",
+      bg: "gray.900",
     },
-    '#__next': {
-      minH: '100vh',
+    "#__next": {
+      minH: "100vh",
     },
   }),
 };
 
-
 const components = {
   Button: Buttons,
-}
+};
 
 const theme = extendTheme({
   breakpoints: Breakpoints,
