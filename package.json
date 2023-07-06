@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "serve": "next dev",
     "build": "next build",
     "start": "next start",
     "content:init": "cd content && git submodule init && git submodule update && cd ..",
@@ -13,15 +14,13 @@
     "check": "npx tsc --noEmit && npx eslint . && npx prettier --write"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.7.1",
-    "@chakra-ui/theme-tools": "^2.0.18",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "framer-motion": "^10.12.18",
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

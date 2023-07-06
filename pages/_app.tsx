@@ -1,8 +1,9 @@
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import { ChakraProvider } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import theme from "../styles/theme";
+import "../styles/global.scss";
+import Header from "@/components/header/header";
+import MenuLateral from "@/components/menuLateral/menuLateral";
 
 export default function App({
   Component,
@@ -28,9 +29,15 @@ export default function App({
             },
           }}
         >
-          <ChakraProvider theme={theme} resetCSS>
-            <Component {...pageProps} />
-          </ChakraProvider>
+            <Header />
+            <main>
+                <MenuLateral />
+                <div className="container">
+                    <div className="content border">
+                        <Component {...pageProps} />
+                    </div>
+                </div>
+            </main>
         </motion.div>
       </AnimatePresence>
     </SessionProvider>

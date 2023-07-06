@@ -1,0 +1,12 @@
+.menuLat{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 20;
+  justify-content: space-between;
+  position: fixed;
+  top: var(--9m);
+  height: calc(100vh - var(--9m));
+  padding: var(--3m) 0 var(--3m) var(--3m);
+  width: 250px;
+}
