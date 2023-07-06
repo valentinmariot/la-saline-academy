@@ -16,13 +16,12 @@ const useUpdateUser = <T>(): {
   const fetchData = useCallback(async (lessonData: Lesson) => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}lesson/update/${lessonData.id}`;
 
-    setIsLoading(true);
-    setError(null);
-    setData(null);
-    try {
-      const session = await getSession();
-      // @ts-ignore
-      const token = session?.accessToken;
+        setIsLoading(true);
+        setError(null);
+        setData(null);
+        try {
+            const session = await getSession();
+            const token = session?.accessToken;
 
       const config = {
         method: "PATCH",

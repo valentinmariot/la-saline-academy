@@ -16,13 +16,12 @@ const useUpdateInfo = <T>(): {
     const fetchData = useCallback(async (infoData: Info) => {
         const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/update/${infoData.id}`;
 
-    setIsLoading(true);
-    setError(null);
-    setData(null);
-    try {
-      const session = await getSession();
-      // @ts-ignore
-      const token = session?.accessToken;
+        setIsLoading(true);
+        setError(null);
+        setData(null);
+        try {
+            const session = await getSession();
+            const token = session?.accessToken;
 
       const config = {
         method: "PATCH",

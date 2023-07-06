@@ -12,30 +12,29 @@ const useDeleteUser = <T>(): {
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (id: number) => {
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/deleteById/${id}`;
-    setIsLoading(true);
-    setError(null);
-    setData(null);
-    try {
-      const session = await getSession();
-      // @ts-ignore
-      const token = session?.accessToken;
-      const config = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const result = await fetchWrapper<T>(endpoint, config);
-      setData(result);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+    const fetchData = useCallback(async (id: number) => {
+        const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/deleteById/${id}`;
+        setIsLoading(true);
+        setError(null);
+        setData(null);
+        try {
+            const session = await getSession();
+            const token = session?.accessToken;
+            const config = {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+            const result = await fetchWrapper<T>(endpoint, config);
+            setData(result);
+        } catch (error) {
+            setError(error);
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
 
   return { data, error, isLoading, fetchData };
 };

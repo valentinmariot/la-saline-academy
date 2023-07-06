@@ -16,13 +16,12 @@ const useUpdateCategory = <T>(): {
   const fetchData = useCallback(async (categoryData: Category) => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}categories/update/${categoryData.id}`;
 
-    setIsLoading(true);
-    setError(null);
-    setData(null);
-    try {
-      const session = await getSession();
-      // @ts-ignore
-      const token = session?.accessToken;
+        setIsLoading(true);
+        setError(null);
+        setData(null);
+        try {
+            const session = await getSession();
+            const token = session?.accessToken;
 
       const config = {
         method: "PATCH",

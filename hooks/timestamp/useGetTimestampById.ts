@@ -20,7 +20,6 @@ const useGetTimestampById = <T>(): {
         setData(null);
         try {
             const session = await getSession();
-            // @ts-ignore
             const token = session?.accessToken;
             const config = {
                 method: "GET",
