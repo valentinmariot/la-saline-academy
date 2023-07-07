@@ -31,10 +31,10 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
 
         <InputContainer />
 
-        <a href="" className="btn btn-purple-solid-intense">
+        <Link href="/profil" className="btn btn-purple-solid-intense">
           <BasicIcon name="profile" />
           Mon profil
-        </a>
+        </Link>
       </header>
     </>
   );

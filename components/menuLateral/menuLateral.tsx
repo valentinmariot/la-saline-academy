@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./menuLateral.module.scss";
 import BasicIcon from "../basicIcon/basicIcon";
+import Link from "next/link";
 
 interface MenuLateralProps {
   isMenuMoved: boolean;
@@ -17,40 +18,40 @@ const MenuLateral = ({ isMenuMoved }: MenuLateralProps) => {
       >
         <ul className="menu glassmorphism border">
           <li>
-            <a href="/" className="hover-effect">
+            <Link href="/" className="hover-effect">
               Academy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/quick-notes" className="hover-effect">
+            <Link href="/quick-notes" className="hover-effect">
               Quick notes
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/challenges" className="hover-effect">
+            <Link href="/challenges" className="hover-effect">
               Challenges
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/forum" className="hover-effect">
+            <Link href="/forum" className="hover-effect">
               Forum
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="footer">
           <div className="liens">
-            <a href="/offres" className="hover-effect">
+            <Link href="/offres" className="hover-effect">
               Offres
-            </a>
-            <a href="/contact" className="hover-effect">
+            </Link>
+            <Link href="/contact" className="hover-effect">
               Nous contacter
-            </a>
-            <a href="/mentions-legales" className="hover-effect">
+            </Link>
+            <Link href="/mentions-legales" className="hover-effect">
               Mentions légales
-            </a>
-            <a href="/conditions_generales" className="hover-effect">
+            </Link>
+            <Link href="/conditions_generales" className="hover-effect">
               Conditions générales
-            </a>
+            </Link>
           </div>
           <div className="reseaux">
             <a href="" target="_blank" rel="next">
