@@ -15,8 +15,8 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
             <button className="white" onClick={onBurgerMenuClick}>
               <BasicIcon name="burger-menu"/>
             </button>
-            <a href="#">
-              <img src="#" alt="Logo Saline" />
+            <a href="/" className="logo">
+              <img src="/logo_saline-academy.svg" alt="Logo de La Saline Academy"/>
             </a>
           </div>
 
