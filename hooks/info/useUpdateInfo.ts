@@ -1,18 +1,19 @@
 import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
+import { Info } from "@/types/infoType";
 
 const useUpdateInfo = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (infoData: any) => Promise<void>;
+  fetchData: (infoData: Info) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (infoData: any) => {
+  const fetchData = useCallback(async (infoData: Info) => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/update/${infoData.id}`;
 
     setIsLoading(true);
@@ -20,6 +21,7 @@ const useUpdateInfo = <T>(): {
     setData(null);
     try {
       const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const token = session?.accessToken;
 

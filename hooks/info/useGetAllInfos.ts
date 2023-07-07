@@ -4,22 +4,23 @@ import { getSession } from "next-auth/react";
 
 const useGetAllInfos = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: () => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchData = useCallback(async () => {
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/getAll/`;
+    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}info/getAll`;
 
     setIsLoading(true);
     setError(null);
     setData(null);
     try {
       const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const token = session?.accessToken;
       const config = {

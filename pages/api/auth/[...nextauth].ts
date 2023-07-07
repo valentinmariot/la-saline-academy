@@ -1,11 +1,6 @@
-import NextAuth from "next-auth";
+import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { fetchWrapper } from "@/utils/fetchWrapper";
-import { router } from "next/client";
-
-interface User {
-  access_token: string;
-}
 
 export default NextAuth({
   secret: process.env.AUTH_SECRET,
@@ -21,7 +16,7 @@ export default NextAuth({
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: any, req) {
+      async authorize(credentials: any) {
         try {
           const jsonData = {
             email: credentials?.email,
@@ -52,10 +47,10 @@ export default NextAuth({
   ],
 
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user }) {
       return !!user;
     },
-    async jwt({ token, account, profile, user }) {
+    async jwt({ token, account, user }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
       if (account) {
         const typeUser = user as any;
@@ -65,7 +60,7 @@ export default NextAuth({
       return token;
     },
 
-    async session({ session, token, user }: any) {
+    async session({ session, token }: any) {
       // Send properties to the client, like an access_token and user id from a provider.
       session.accessToken = token.accessToken;
       console.log(session);

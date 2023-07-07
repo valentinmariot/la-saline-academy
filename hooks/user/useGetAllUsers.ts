@@ -4,12 +4,12 @@ import { getSession } from "next-auth/react";
 
 const useGetUserById = <T>(): {
   data: T | null;
-  error: any;
+  error: Error | null | unknown;
   isLoading: boolean;
   fetchData: () => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchData = useCallback(async () => {
@@ -20,6 +20,7 @@ const useGetUserById = <T>(): {
     setData(null);
     try {
       const session = await getSession();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const token = session?.accessToken;
       const config = {
