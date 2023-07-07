@@ -16,7 +16,7 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
     <>
       <header className={styles.header + " glassmorphism"}>
         <div>
-          <button className="white" onClick={onBurgerMenuClick}>
+          <button className="white dflex" onClick={onBurgerMenuClick}>
             <BasicIcon name="burger-menu" />
           </button>
           <Link href="/" className="logo">
@@ -28,8 +28,15 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
             />
           </Link>
         </div>
-
-        <InputContainer />
+        <form id="searchbar">
+          <InputContainer
+            id="search"
+            placeholder="search"
+            icon="search"
+            type="text"
+            required
+          />
+        </form>
 
         <Link href="/profil" className="btn btn-purple-solid-intense">
           <BasicIcon name="profile" />

@@ -16,6 +16,10 @@
   gap: $--2m;
   border-bottom: 2px solid rgba(128, 128, 128, 0.57);
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.71) 0%, rgba(77, 77, 77, 0.71) 100%);
+  &>#searchbar{
+    width: max-content;
+    max-width: 400px;
+  }
   &>div{
     display: flex;
     flex-direction: row;
