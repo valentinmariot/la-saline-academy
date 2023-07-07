@@ -23,5 +23,15 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     gap: $--2m;
+    height: 100%;
+    &>a{
+      height: 100%;
+      &>img{
+        height: 100%;
+      }
+      &:hover{
+        filter: grayscale(1);
+      }
+    }
   }
 }
