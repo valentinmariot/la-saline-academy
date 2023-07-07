@@ -1,0 +1,210 @@
+@import "./vars";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-transition: $--smooth;
+  transition: $--smooth;
+}
+*:focus{
+  outline: none;
+}
+::selection {
+  background: rgba($--purple-50, 0.5);
+}
+::-webkit-scrollbar{
+  width: $--1m;
+  height: $--1m;
+}
+::-webkit-scrollbar-thumb{
+  background: $--gray-50;
+  border-radius: $--radius-30;
+}
+html{
+  font-family: $--text-font;
+  font-size: $--font-size;
+  font-weight: 400;
+  line-height: auto;
+  color: $--gray-50;
+  background: $--gray-900;
+  scroll-behavior: smooth;
+}
+.menu{
+  background: rgba(51, 51, 51, 0.40);
+  border-radius: $--1m;
+  padding: $--3m;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: $--4m;
+  li>*{
+    color: $--purple-200;
+  }
+}
+.footer{
+  padding: 0 $--3m;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: $--3m;
+  .liens{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: $--1-5m;
+  }
+  .reseaux{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: $--3m;
+    span{
+      color: $--purple-100;
+      &:hover{
+        color: $--purple-300;
+      }
+    }
+  }
+}
+main{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: $--2m;
+  flex-wrap: nowrap;
+  .container{
+    display: flex;
+    position: absolute;
+    top: $--9m;
+    right: 0;
+    padding: $--3m;
+    width: 100%;
+    height: auto;
+    min-height: calc(100vh - 72px);
+    .content{
+      padding: $--4m;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $--2m;
+      flex-shrink: 0;
+      min-height: 100%;
+      width: 100%;
+      border-radius: $--1m;
+      background: rgba(26, 26, 26, 0.79);
+      box-shadow: 0 0 32px 0 $--gray-800 inset, 0 $--0-5m 16px 0 rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur($--1m);
+    }
+  }
+  .smallContainer{
+    width: calc(100vw - 260px);
+  }
+}
+figure{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+p{
+  white-space: pre-line;
+}
+a{
+  cursor: pointer;
+  color: $--gray-50;
+}
+Link{
+  cursor: pointer;
+  color: $--gray-50;
+}
+input,textarea, .input,select{
+  background: none;
+  outline: none;
+  transition: $--smooth;
+  border: none;
+}
+button{
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  width: fit-content;
+}
+.hover-effect{
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+  &:before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: -3px;
+    right: 0;
+    background-color: $--purple-200;
+    transition: $--smooth;
+  }
+  &:hover:before{
+    transition: $--smooth;
+    left: 0;
+    width: 100%;
+  }
+  &>div{
+    pointer-events: none;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transition: transform .4s;
+    &>span{
+      display: block;
+      transform-origin: top center;
+      transform-style: preserve-3d;
+      transition: opacity .4s,color .4s,transform .4s;
+      &:first-child{
+        transform: rotateX(0deg) translate3d(0,0%,0);
+      }
+      &:nth-child(2){
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transform: rotateX(-90deg) translate3d(0,50%,0);
+        transform-origin: bottom center;
+        transition: opacity .4s,visibility 1ms .4s,color .4s,transform .4s;
+        visibility: hidden;
+      }
+    }
+  }
+  &:hover div>span:first-child{
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateX(90deg) translate3d(0,-100%,0);
+    -webkit-transform: rotateX(90deg) translate3d(0,-100%,0);
+    transition: opacity .4s,visibility 1ms .4s,color .4s,transform .4s;
+  }
+  &:hover div>span:nth-child(2){
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg) translate3d(0,0,0);
+    -webkit-transform: rotateX(0deg) translate3d(0,0%,0);
+    transition: opacity .4s,color .4s,transform .4s;
+    color: $--orange;
+  }
+}

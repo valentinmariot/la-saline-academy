@@ -1,0 +1,99 @@
+.btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: $--1m;
+  padding: $--1-5m $--3m;
+  border-radius: $--1m;
+  font-size: $--2m;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: $--title-font;
+  &-purple{
+    &-solid{
+      color: $--gray-50;
+      border: 1px solid $--purple-200;
+      background: $--purple-900;
+      box-shadow: 0px -3px 20px -2px #5D09C3 inset;
+      &:hover{
+        box-shadow: 0px -3px 22px -2px #8E37F6 inset, 0px 0px 16px 0px #460693;
+      }
+      &:focus, &:active{
+        background: $--purple-700;
+      }
+      &-intense{
+        color: $--gray-50;
+        border: 1px solid $--purple-200;
+        background: $--purple-900;
+        box-shadow: 0px -3px 20px -2px #5D09C3 inset;
+        &:hover{
+          box-shadow: 0px -3px 22px -2px #8E37F6 inset, 0px 0px 16px 0px #8E37F6;
+          &:focus, &:active{
+            background: $--purple-700;
+          }
+        }
+      }
+    }
+    &-ghost{
+
+    }
+    &-link{
+
+    }
+  }
+
+  &-gray{
+
+    &-solid{
+
+      &-intense{
+
+      }
+    }
+    &-ghost{
+
+    }
+    &-link{
+
+    }
+  }
+
+  &-red{
+
+    &-solid{
+
+      &-intense{
+
+      }
+    }
+    &-ghost{
+
+    }
+    &-link{
+
+    }
+  }
+
+  &-green{
+
+    &-solid{
+
+      &-intense{
+
+      }
+    }
+    &-ghost{
+
+    }
+    &-link{
+
+    }
+  }
+
+  &-disable{
+
+  }
+}

@@ -25,9 +25,10 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      "@/vars": ["./styles/vars/index.scss"],
+      "@/components/*": ["./components/*"],
+      "@/assets/*": ["./public/assets/*"],
     }
   },
   "include": [

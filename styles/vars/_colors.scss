@@ -1,0 +1,71 @@
+// --- C O L O R S --- //
+
+  /*gray color*/
+  $--gray-50: #F2F2F2;
+  $--gray-100: #DBDBDB;
+  $--gray-200: #C4C4C4;
+  $--gray-300: #ADADAD;
+  $--gray-400: #969696;
+  $--gray-500: #808080;
+  $--gray-600: #666666;
+  $--gray-700: #4D4D4D;
+  $--gray-800: #333333;
+  $--gray-900: #1A1A1A;
+
+  /*purple color*/
+  $--purple-50: #F1E7FE;
+  $--purple-100: #D8BBFC;
+  $--purple-200: #BF8FFA;
+  $--purple-300: #A763F8;
+  $--purple-400: #8E37F6;
+  $--purple-500: #750BF4;
+  $--purple-600: #5D09C3;
+  $--purple-700: #460693;
+  $--purple-800: #2F0462;
+  $--purple-900: #170231;
+
+  /*green color*/
+  $--green-50: #EDF7F0;
+  $--green-100: #CDEAD6;
+  $--green-200: #ACDCBB;
+  $--green-300: #8CCFA1;
+  $--green-400: #6CC186;
+  $--green-500: #4EB56E;
+  $--green-600: #3C9056;
+  $--green-700: #2D6C41;
+  $--green-800: #1E482B;
+  $--green-900: #0F2416;
+
+  /*red color*/
+  $--red-50: #FDEAE7;
+  $--red-100: #FAC3BC;
+  $--red-200: #F79D91;
+  $--red-300: #F47767;
+  $--red-400: #F1503C;
+  $--red-500: #E22810;
+  $--red-600: #BF220D;
+  $--red-700: #8F190A;
+  $--red-800: #5F1107;
+  $--red-900: #300803;
+
+  /*other colors*/
+  $--orange: #FF9900;
+
+.white{
+  color: $--gray-50;
+}
+.black{
+  color: $--gray-900;
+}
+.purple{
+  color: $--purple-500;
+}
+.green{
+  color: $--green-500;
+}
+.red{
+  color: $--red-500;
+}
+.orange{
+  color: $--orange;
+}
