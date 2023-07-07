@@ -1,8 +1,12 @@
 import BasicIcon from "@/components/basicIcon/basicIcon";
+import Head from "next/head";
 
 const Home = () => {
   return (
     <>
+      <Head>
+        <title>Accueil - La Saline Academy</title>
+      </Head>
       <h1>Title1 - Gotham Bold (5m)</h1>
       <h2>Titre h2</h2>
       <h3>Titre h3</h3>
