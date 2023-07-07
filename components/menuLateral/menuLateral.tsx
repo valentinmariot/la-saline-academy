@@ -13,7 +13,7 @@ const MenuLateral = ({ isMenuMoved }: MenuLateralProps) => {
         <aside className={`${styles.menuLat} ${isMenuMoved ? styles.menuMoved : "menuOpen"}`}>
           <ul className="menu glassmorphism border">
             <li>
-              <a href="#" className="hover-effect">
+              <a href="/" className="hover-effect">
                 Academy
               </a>
             </li>
