@@ -16,6 +16,19 @@
     color: inherit;
   }
 
+  &-s {
+    font-size: $--2m;
+  }
+  &-m {
+    font-size: $--3m;
+  }
+  &-l {
+    font-size: $--4m;
+  }
+  &-xl {
+    font-size: $--6m;
+  }
+
   &-announcement:before {
     content: "\e900";
   }
