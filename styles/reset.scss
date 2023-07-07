@@ -56,7 +56,7 @@ html{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    gap: 12px;
+    gap: $--1-5m;
   }
   .reseaux{
     display: flex;
@@ -100,7 +100,7 @@ main{
       width: 100%;
       border-radius: $--1m;
       background: rgba(26, 26, 26, 0.79);
-      box-shadow: 0 0 32px 0 $--gray-800 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 32px 0 $--gray-800 inset, 0 $--0-5m 16px 0 rgba(0, 0, 0, 0.25);
       backdrop-filter: blur($--1m);
     }
   }
@@ -132,31 +132,8 @@ Link{
 input,textarea, .input,select{
   background: none;
   outline: none;
-  border: $--border-black;
-  width: 100%;
-  border-radius: $--radius-30;
-  padding: 6px $--2m;
   transition: $--smooth;
-  position: relative;
-  font-size: $--font-size;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  text-align: center;
-  color: $--orange;
-  &:hover{
-    border: 2px solid $--orange;
-    color: $--orange;
-    opacity: 1;
-  }
-  &:active, &:focus, &:visited{
-    border: 2px solid $--orange;
-    color: $--orange;
-    border-radius: 8px;
-    opacity: 1;
-  }
+  border: none;
 }
 button{
   background: none;
