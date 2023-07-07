@@ -86,7 +86,7 @@ main{
     top: $--9m;
     right: 0;
     padding: $--3m;
-    width: calc(100vw - 260px);
+    width: 100%;
     height: auto;
     min-height: calc(100vh - 72px);
     .content{
@@ -103,6 +103,9 @@ main{
       box-shadow: 0 0 32px 0 $--gray-800 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
       backdrop-filter: blur($--1m);
     }
+  }
+  .smallContainer{
+    width: calc(100vw - 260px);
   }
 }
 figure{
@@ -160,10 +163,6 @@ button{
   border: none;
   outline: none;
   cursor: pointer;
-  &:active, &:focus{
-    border-radius: 8px;
-    border: 2px solid $--orange;
-  }
 }
 li{
   list-style-type: none;
