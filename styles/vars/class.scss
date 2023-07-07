@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: var(--4m);
+  gap: $--4m;
   width: 100%;
   height: auto;
   @media only screen and (max-width: 800px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: var(--2m);
+    gap: $--2m;
   }
 }
 
@@ -18,13 +18,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   width: 100%;
-  gap: var(--3m);
+  gap: $--3m;
   height: auto;
   @media only screen and (max-width: 800px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: var(--2m);
+    gap: $--2m;
   }
 }
 
@@ -35,11 +35,11 @@
   border: 2px solid rgba(128, 128, 128, 0.57);
 }
 .border-white{
-  border: var(--border-white) !important;
+  border: $--border-white !important;
 }
 
 .border-radius{
-  border-radius: var(--radius-30);
+  border-radius: $--radius-30;
 }
 .glassmorphism{
   box-shadow: 0px 0px 32px 0px #1A1A1A inset, 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
@@ -63,12 +63,12 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: var(--4m);
+  gap: $--4m;
   h3{
     text-align: left;
   }
   @media only screen and (max-width: 800px){
-    gap: var(--2m);
+    gap: $--2m;
   }
 }
 

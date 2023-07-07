@@ -1,0 +1,24 @@
+
+/*Spacing*/
+$--1m: 8px;
+$--2m: calc(2 * $--1m);
+$--3m: calc(3 * $--1m);
+$--4m: calc(4 * $--1m);
+$--5m: calc(5 * $--1m);
+$--6m: calc(6 * $--1m);
+$--7m: calc(7 * $--1m);
+$--8m: calc(8 * $--1m);
+$--9m: calc(9 * $--1m);
+$--10m: calc(2 * $--5m);
+$--16m: calc(2 * $--8m);
+
+$--border-black: 2px solid $--gray-900;
+$--border-white: 2px solid $--gray-50;
+$--radius-30: 30px;
+$--blur: blur(8px);
+
+$--smooth: .5s cubic-bezier(.215, .61, .355, 1);
+
+@media only screen and (max-width: 800px){
+  $--radius-30: 20px;
+}

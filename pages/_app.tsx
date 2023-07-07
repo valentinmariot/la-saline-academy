@@ -29,15 +29,15 @@ export default function App({
             },
           }}
         >
-            <Header />
-            <main>
-                <MenuLateral />
-                <div className="container">
-                    <div className="content border">
-                        <Component {...pageProps} />
-                    </div>
-                </div>
-            </main>
+          <Header />
+          <main>
+            <MenuLateral />
+            <div className="container">
+              <div className="content border">
+                <Component {...pageProps} />
+              </div>
+            </div>
+          </main>
         </motion.div>
       </AnimatePresence>
     </SessionProvider>
