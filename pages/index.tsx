@@ -7,6 +7,7 @@ const Home = () => {
       <Head>
         <title>Accueil - La Saline Academy</title>
       </Head>
+
       <h1>Title1 - Gotham Bold (5m)</h1>
       <h2>Titre h2</h2>
       <h3>Titre h3</h3>
@@ -19,9 +20,10 @@ const Home = () => {
       <u>underline</u>
 
       <a href="" className="btn btn-purple-solid">
-        <BasicIcon name="tiktok" />
+        <BasicIcon name="tiktok"/>
         Tiktok
       </a>
+
       <h1>Title1 - Gotham Bold (5m)</h1>
       <h2>Titre h2</h2>
       <h3>Titre h3</h3>

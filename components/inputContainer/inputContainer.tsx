@@ -43,7 +43,7 @@ const InputContainer: FC<InputContainerProps> = ({
           required={required}
         />
       </div>
-      {error && <span className={styles.input_error}>Error message</span>}
+      {error && <span className={styles.input_error}>{error}</span>}
     </div>
   );
 };
