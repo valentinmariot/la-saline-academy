@@ -7,8 +7,6 @@
     "serve": "next dev",
     "build": "next build",
     "start": "next start",
-    "content:init": "cd content && git submodule init && git submodule update && cd ..",
-    "content:update": "git submodule update --remote",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "check": "npx tsc --noEmit && npx eslint . && npx prettier --write"
@@ -38,7 +36,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.1",
     "prettier": "^2.6.2",
     "prettier-eslint": "^15.0.1",
     "typescript": "4.8.3"

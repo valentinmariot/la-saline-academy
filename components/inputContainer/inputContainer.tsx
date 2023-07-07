@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import BasicIcon from "../basicIcon/basicIcon";
 
 import styles from "./inputContainer.module.scss";
