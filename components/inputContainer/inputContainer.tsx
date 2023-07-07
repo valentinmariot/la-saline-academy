@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import BasicIcon from "../basicIcon/basicIcon";
 
 import styles from "./inputContainer.module.scss";
@@ -41,6 +41,7 @@ const InputContainer: FC<InputContainerProps> = ({
           placeholder={placeholder}
           disabled={disabled}
           required={required}
+          className={icon && styles.withIcon}
         />
       </div>
       {error && <span className={styles.input_error}>{error}</span>}

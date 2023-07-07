@@ -20,7 +20,7 @@ const Home = () => {
       <u>underline</u>
 
       <a href="" className="btn btn-purple-solid">
-        <BasicIcon name="tiktok"/>
+        <BasicIcon name="tiktok" />
         Tiktok
       </a>
 
