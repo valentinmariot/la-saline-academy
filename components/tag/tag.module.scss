@@ -1,0 +1,44 @@
+@import "@/vars";
+
+.tag {
+    font-size: $--1-5m;
+    white-space: nowrap;
+    padding: $--1m $--2m;
+    border: 1px solid;
+    border-radius: $--4m;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $--0-5m;
+    text-transform: lowercase;
+
+    &_purple {
+        color: $--purple-200;
+        border-color: $--purple-200;
+
+        &:hover {
+            background-color: $--purple-100;
+            color: $--purple-400;
+            border-color: $--purple-400;
+        }
+    }
+
+    &_orange {
+        color: $--orange-500;
+        border-color: $--orange-500;
+
+        &:hover {
+            background-color: $--orange-100;
+            color: $--orange-500;
+            border-color: $--orange-500;
+        }
+    }
+
+    &_xs {
+        padding: 5px 10px;
+    }
+
+    &_s {
+        padding: $--1m $--2m;
+    }
+}
