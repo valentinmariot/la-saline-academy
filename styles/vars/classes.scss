@@ -67,15 +67,14 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: $--4m;
-  h3{
-    text-align: left;
-  }
+  gap: $--2m;
   @media only screen and (max-width: 800px){
-    gap: $--2m;
+    gap: $--1m;
   }
 }
-
+.italic{
+  font-style: italic;
+}
 .disabled{
   pointer-events: none;
   cursor: not-allowed;
