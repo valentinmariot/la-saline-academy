@@ -25,9 +25,7 @@ const Home = () => {
             `${isMenuMoved ? styles.menuMoved : "smallContainer"}`
           }
         >
-          <div className="content border">
-            {/*// content*/}
-          </div>
+          <div className="content border">{/*// content*/} hey</div>
         </div>
       </main>
     </>

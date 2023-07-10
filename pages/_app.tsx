@@ -11,11 +11,9 @@ import "../styles/global.scss";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
 
 export default function App({
-                              Component,
-                              pageProps: { session, ...pageProps }
-                            }: AppProps) {
-
-
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   console.log("pageProps", pageProps);
 
   return (
@@ -101,19 +99,17 @@ export default function App({
           animate="pageAnimate"
           variants={{
             pageInitial: {
-              opacity: 0
+              opacity: 0,
             },
             pageAnimate: {
-              opacity: 1
+              opacity: 1,
             },
             pageExit: {
-              opacity: 0
-            }
+              opacity: 0,
+            },
           }}
         >
-
           <Component {...pageProps} />
-
         </motion.div>
       </AnimatePresence>
     </SessionProvider>
