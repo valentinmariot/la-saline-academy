@@ -2,7 +2,7 @@ import { FC } from "react";
 
 interface BasicIconProps {
   name: string;
-  size?: "s" | "m" | "l" | "xl";
+  size?: "xs" | "s" | "m" | "l" | "xl";
 }
 
 const BasicIcon: FC<BasicIconProps> = ({ name, size = "m" }) => {
