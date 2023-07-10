@@ -1,5 +1,6 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import Head from "next/head";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -20,6 +21,9 @@ const Login = () => {
 
   return (
     <>
+      <Head>
+        <title>Accueil - La Saline Academy</title>
+      </Head>
       <form>
         <input
           onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
