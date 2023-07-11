@@ -7,7 +7,7 @@ import styles from "./tag.module.scss";
 interface TagProps {
   name: string;
   href: string;
-  color?: "purple" | "orange";
+  color?: "purple" | "orange" | "new";
   size?: "xs" | "s";
   icon?: string;
 }

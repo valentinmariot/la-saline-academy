@@ -12,4 +12,18 @@
   padding: $--3m 0 $--3m $--3m;
   width: 250px;
   transform: translate(-110%);
+  @media (max-width: 800px){
+    padding: $--2m;
+    width: 100%;
+    max-width: 250px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur($--1m);
+    -webkit-backdrop-filter: blur($--1m);
+    border-right: 2px solid rgba(128, 128, 128, 0.57);
+    font-size: 15px !important;
+  }
+  @media (max-width: 500px){
+    top: $--7m;
+    height: calc(100vh - $--7m);
+  }
 }

@@ -10,7 +10,6 @@
     flex-direction: row;
     align-items: center;
     gap: $--0-5m;
-    text-transform: lowercase;
 
     &_purple {
         color: $--purple-200;
@@ -32,6 +31,13 @@
             color: $--orange-500;
             border-color: $--orange-500;
         }
+    }
+
+    &_new{
+        color: $--gray-50;
+        border: 1px solid #EE15B1;
+        background: rgba(238, 21, 177, 0.40);
+        backdrop-filter: blur($--0-5m);
     }
 
     &_xs {

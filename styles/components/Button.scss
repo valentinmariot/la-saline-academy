@@ -12,6 +12,7 @@
   font-weight: 500;
   line-height: normal;
   font-family: $--title-font;
+  white-space: nowrap;
   &-purple{
     &-solid{
       color: $--gray-50;
@@ -41,12 +42,18 @@
 
     }
     &-link{
-
+      padding: 0;
+      gap: $--0-5m;
+      color: $--purple-100;
+      font-size: 12px;
+      &:hover{
+        color: $--purple-200;
+      }
     }
   }
 
   &-gray{
-
+    color: $--gray-100;
     &-solid{
 
       &-intense{
@@ -57,7 +64,16 @@
 
     }
     &-link{
-
+      padding: 0;
+      gap: $--0-5m;
+      color: $--gray-100;
+      font-size: 12px;
+      &:before{
+        background: $--gray-200 !important;
+      }
+      &:hover{
+        color: $--gray-200;
+      }
     }
   }
 
@@ -95,5 +111,12 @@
 
   &-disable{
 
+  }
+  @media (max-width: 800px){
+    padding: $--1m $--1-5m;
+    font-size: 14px;
+    span{
+      font-size: $--2m;
+    }
   }
 }

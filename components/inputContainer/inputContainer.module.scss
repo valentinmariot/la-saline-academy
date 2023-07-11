@@ -57,6 +57,20 @@
         .withIcon{
             padding: $--1m $--2m $--1m $--6m;
         }
+        @media (max-width: 800px){
+            gap: $--1m;
+            span{
+                left: $--1m;
+                font-size: $--2m;
+            }
+            &>input {
+                font-size: 14px;
+                padding: $--1m;
+            }
+            .withIcon{
+                padding: $--1m $--1m $--1m $--4m;
+            }
+        }
     }
     &_error {
         color: $--red-500;
