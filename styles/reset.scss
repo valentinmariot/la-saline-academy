@@ -43,6 +43,10 @@ html{
   li>*{
     color: $--purple-200;
   }
+  @media (max-width: 800px){
+    padding: $--2m;
+    gap: $--3m;
+  }
 }
 .footer{
   padding: 0 $--3m;
@@ -71,6 +75,9 @@ html{
         color: $--purple-300;
       }
     }
+  }
+  @media (max-width: 800px){
+    padding: 0;
   }
 }
 main{
@@ -106,9 +113,29 @@ main{
         width: 100%;
       }
     }
+    @media (max-width: 800px) {
+      padding: $--2m;
+      .content{
+        padding: $--2m $--2m $--4m $--2m;
+      }
+    }
+    @media (max-width: 600px) {
+      .content{
+        border-radius: 0;
+        border: none !important;
+        box-shadow: none;
+      }
+      padding: 0;
+    }
+    @media (max-width: 500px){
+      top: $--7m;
+    }
   }
   .smallContainer{
     width: calc(100vw - 260px);
+    @media (max-width: 800px){
+      width: 100%;
+    }
   }
 }
 figure{

@@ -12,6 +12,7 @@
   font-weight: 500;
   line-height: normal;
   font-family: $--title-font;
+  white-space: nowrap;
   &-purple{
     &-solid{
       color: $--gray-50;
@@ -110,5 +111,12 @@
 
   &-disable{
 
+  }
+  @media (max-width: 800px){
+    padding: $--1m $--1-5m;
+    font-size: 14px;
+    span{
+      font-size: $--2m;
+    }
   }
 }
