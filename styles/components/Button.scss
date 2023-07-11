@@ -52,7 +52,7 @@
   }
 
   &-gray{
-
+    color: $--gray-100;
     &-solid{
 
       &-intense{
@@ -63,7 +63,16 @@
 
     }
     &-link{
-
+      padding: 0;
+      gap: $--0-5m;
+      color: $--gray-100;
+      font-size: 12px;
+      &:before{
+        background: $--gray-200 !important;
+      }
+      &:hover{
+        color: $--gray-200;
+      }
     }
   }
 

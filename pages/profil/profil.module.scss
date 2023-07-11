@@ -8,6 +8,7 @@
   justify-content: flex-start;
   gap: $--2m;
   &>div{
+    width: 100%;
     gap: $--2m;
     display: flex;
     flex-direction: column;
@@ -15,11 +16,16 @@
   .infos_profil{
     .titre{
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: $--1m;
+      @media (max-width: 600px) {
+        flex-direction: column-reverse;
+      }
     }
     .infos{
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: baseline;
       justify-content: flex-start;
       flex-wrap: wrap;
       column-gap: $--2m;
@@ -52,6 +58,17 @@
       justify-content: flex-start;
       flex-wrap: nowrap;
       gap: $--2m;
+      padding-bottom: 6px;
+      &::-webkit-scrollbar{
+        height: 5px;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: $--gray-500;
+      }
     }
+  }
+  .head_cours{
+    justify-content: space-between;
+    width: 100%;
   }
 }

@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: $--4m;
+  gap: $--2m;
   width: 100%;
   height: auto;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 600px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: $--2m;
+    gap: $--1m;
   }
 }
 
@@ -20,11 +20,34 @@
   width: 100%;
   gap: $--3m;
   height: auto;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 1000px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 600px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: $--2m;
+    gap: $--1m;
+  }
+}
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  gap: $--2m;
+  height: auto;
+  @media only screen and (max-width: 1400px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 1000px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 600px){
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (max-width: 500px){
+    gap: $--1m;
   }
 }
 
@@ -51,6 +74,12 @@
 }
 .menuOpen{
   transform: translate(0) !important;
+}
+.ml-auto{
+  margin-left: auto;
+}
+.mr-auto{
+  margin-right: auto;
 }
 
 .dnone{
