@@ -1,6 +1,6 @@
 import Head from "next/head";
 import BasicIcon from "@/components/basicIcon/basicIcon";
-import styles from "./profil.module.scss";
+import styles from "styles/_pages/profil.module.scss";
 import Tag from "@/components/tag/tag";
 import Card from "@/components/card/card";
 import Link from "next/link";

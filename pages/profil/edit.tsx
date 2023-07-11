@@ -1,4 +1,4 @@
-import styles from "./profil.module.scss";
+import styles from "styles/_pages/profil.module.scss";
 import Head from "next/head";
 
 const EditProfil = () => {
