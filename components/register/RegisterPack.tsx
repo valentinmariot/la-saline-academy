@@ -1,12 +1,12 @@
 import React from "react";
 
 type RegisterPackProps = {
-  onNext: (packId: number) => void;
+  onNext: (data: Partial<{ planId: number }>) => void;
 };
 
 const RegisterPack: React.FC<RegisterPackProps> = ({ onNext }) => {
   const handleNext = (packId: number) => {
-    onNext(packId);
+    onNext({ planId: packId });
   };
 
   return (

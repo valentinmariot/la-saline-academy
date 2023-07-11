@@ -22,7 +22,13 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
   };
 
   const handleNext = () => {
-    onNext(formValues);
+    const data: Partial<UserData> = {
+      firstname: formValues.firstname,
+      lastname: formValues.lastname,
+      email: formValues.email,
+      password: formValues.password,
+    };
+    onNext(data);
   };
 
   return (

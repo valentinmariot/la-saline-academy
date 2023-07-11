@@ -27,6 +27,8 @@ const InputContainer: FC<InputContainerProps> = ({
   type,
   required,
   error,
+  value,
+  onChange,
 }) => {
   return (
     <div className={styles.input}>
@@ -44,6 +46,8 @@ const InputContainer: FC<InputContainerProps> = ({
           disabled={disabled}
           required={required}
           className={icon && styles.withIcon}
+          value={value}
+          onChange={onChange}
         />
       </div>
       {error && <span className={styles.input_error}>{error}</span>}
