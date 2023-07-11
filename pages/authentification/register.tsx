@@ -16,8 +16,13 @@ const Register = () => {
     planId: 1,
   });
   const [formStep, setFormStep] = useState(0);
-  const nextFormStep = () => setFormStep((formStep) => formStep + 1);
-
+  const nextFormStep = (data: Partial<UserData>) => {
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      ...data,
+    }));
+    setFormStep((prevFormStep) => prevFormStep + 1);
+  };
   const handleRegister = async (e: any) => {
     e.preventDefault();
     await register.fetchData(userData);

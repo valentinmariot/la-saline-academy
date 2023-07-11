@@ -1,13 +1,17 @@
 import React from "react";
 
-type RegisterBasicProps = {
-  onNext: () => void;
+type RegisterPackProps = {
+  onNext: (packId: number) => void;
 };
 
-const RegisterPack: React.FC<RegisterBasicProps> = ({ onNext }) => {
+const RegisterPack: React.FC<RegisterPackProps> = ({ onNext }) => {
+  const handleNext = (packId: number) => {
+    onNext(packId);
+  };
+
   return (
     <>
-      <h2>Choisisser votre pack</h2>
+      <h2>Choisissez votre pack</h2>
       <p>Il est venu le moment de choisir votre pack expérience</p>
       <div>
         <p>Pack Freemium</p>
@@ -15,7 +19,10 @@ const RegisterPack: React.FC<RegisterBasicProps> = ({ onNext }) => {
         <ul>
           <li>à quelques formations gratuites</li>
         </ul>
-        <button className="btn btn-purple-solid-intense" onClick={onNext}>
+        <button
+          className="btn btn-purple-solid-intense"
+          onClick={() => handleNext(1)}
+        >
           Choisir
         </button>
       </div>
@@ -27,7 +34,10 @@ const RegisterPack: React.FC<RegisterBasicProps> = ({ onNext }) => {
           <li>au quick-notes</li>
           <li>au forum</li>
         </ul>
-        <button className="btn btn-purple-solid-intense" onClick={onNext}>
+        <button
+          className="btn btn-purple-solid-intense"
+          onClick={() => handleNext(2)}
+        >
           Choisir
         </button>
       </div>
@@ -37,7 +47,10 @@ const RegisterPack: React.FC<RegisterBasicProps> = ({ onNext }) => {
         <ul>
           <li>à toutes nos features</li>
         </ul>
-        <button className="btn btn-purple-solid-intense" onClick={onNext}>
+        <button
+          className="btn btn-purple-solid-intense"
+          onClick={() => handleNext(3)}
+        >
           Choisir
         </button>
       </div>

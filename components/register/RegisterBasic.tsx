@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import InputContainer from "../inputContainer/inputContainer";
+import { UserData } from "@/types/user";
 
 type RegisterBasicProps = {
-  onNext: () => void;
+  onNext: (data: Partial<UserData>) => void;
 };
 
 const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
+  const [formValues, setFormValues] = useState<Partial<UserData>>({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (fieldName: string, value: string) => {
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleNext = () => {
+    onNext(formValues);
+  };
+
   return (
     <>
       <div>
@@ -27,6 +46,8 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
           placeholder="Votre nom"
           type="text"
           required
+          value={formValues.lastname}
+          onChange={(e) => handleInputChange("lastname", e.target.value)}
         />
         <InputContainer
           id="firstname"
@@ -35,6 +56,8 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
           placeholder="Votre prénom"
           type="text"
           required
+          value={formValues.firstname}
+          onChange={(e) => handleInputChange("firstname", e.target.value)}
         />
         <InputContainer
           id="email"
@@ -43,6 +66,8 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
           placeholder="votre@email.fr"
           type="email"
           required
+          value={formValues.email}
+          onChange={(e) => handleInputChange("email", e.target.value)}
         />
         <InputContainer
           id="password"
@@ -51,9 +76,11 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
           placeholder="Votre mot de passe"
           type="password"
           required
+          value={formValues.password}
+          onChange={(e) => handleInputChange("password", e.target.value)}
         />
       </div>
-      <button className="btn btn-purple-solid-intense" onClick={onNext}>
+      <button className="btn btn-purple-solid-intense" onClick={handleNext}>
         Suite
       </button>
     </>
