@@ -29,13 +29,14 @@ const Card: FC<CardProps> = ({
     language,
     point,
     desc,
-    isNew= true,
+    isNew= false,
     tagName,
     tagColor = "purple",
     tagLink,
 }) => {
     return (
-        <Link className={styles.card_cours + ' border'} href={href}>
+        <div className={styles.card_cours + ' border'}>
+            <Link className={styles.link} href={href}></Link>
             {isNew &&
                 <span className={styles.new}>
                      <Tag name="Nouveaux" href="#" size="xs" color="new"/>
@@ -72,7 +73,7 @@ const Card: FC<CardProps> = ({
                 {tagName && <Tag name={tagName} href={tagLink} size="xs" color={tagColor}/>}
             </div>
 
-        </Link>
+        </div>
     );
 };
 

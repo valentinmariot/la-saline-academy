@@ -6,14 +6,24 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  overflow: hidden;
   gap: $--2m;
   border-radius: $--1m;
   padding: $--2m;
   box-shadow: 0 0 32px 0 $--gray-800 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  .link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
   .new{
     position: absolute;
     top: $--3m;
     right: $--3m;
+    z-index: 2;
   }
   p, div{
     font-size: 12px;

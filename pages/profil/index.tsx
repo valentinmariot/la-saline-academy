@@ -125,6 +125,7 @@ const Profil = () => {
                           href="cours/detail"
                           image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
                           tagLink="#"
+                          isNew
                           tagName="Violon"
                           title="Prendre en main le solfège"/>
                     <Card author="Charles-Lucas Maxime"
@@ -135,7 +136,6 @@ const Profil = () => {
                           href="cours/detail"
                           image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
                           tagLink="#"
-                          tagName="Violon"
                           title="Prendre en main le solfège"/>
                     <Card author="Charles-Lucas Maxime"
                           time="30"
@@ -145,7 +145,6 @@ const Profil = () => {
                           href="cours/detail"
                           image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
                           tagLink="#"
-                          tagName="Violon"
                           title="Prendre en main le solfège"/>
                     <Card author="Charles-Lucas Maxime"
                           time="30"
@@ -155,7 +154,6 @@ const Profil = () => {
                           href="cours/detail"
                           image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
                           tagLink="#"
-                          tagName="Violon"
                           title="Prendre en main le solfège"/>
                 </div>
             </div>
