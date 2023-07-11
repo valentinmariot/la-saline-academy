@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Link from "next/link";
 
-import styles from "./cardnote.module.scss";
+import styles from "./cardNote.module.scss";
 import BasicIcon from "@/components/basicIcon/basicIcon";
 
 interface CardNoteProps {
