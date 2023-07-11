@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import styles from "./card.module.scss";
 import BasicIcon from "@/components/basicIcon/basicIcon";
+import Image from "next/image";
 
 interface CardProps {
   image: string;
@@ -44,7 +45,7 @@ const Card: FC<CardProps> = ({
       )}
       {image && (
         <figure>
-          <img src={image} alt={title} />
+          <Image src={image} alt={title} />
         </figure>
       )}
       <div className={styles.card_content}>
