@@ -14,6 +14,7 @@ interface InputContainerProps {
   type: string;
   required?: boolean;
   onChange: ChangeEventHandler;
+  pattern?: string;
 }
 
 const InputContainer: FC<InputContainerProps> = ({
@@ -27,6 +28,7 @@ const InputContainer: FC<InputContainerProps> = ({
   required,
   error,
   onChange,
+  pattern,
 }) => {
   return (
     <div className={styles.input}>
@@ -45,6 +47,7 @@ const InputContainer: FC<InputContainerProps> = ({
           required={required}
           className={icon && styles.withIcon}
           onChange={onChange}
+          pattern={pattern}
         />
       </div>
       {error && <span className={styles.input_error}>{error}</span>}

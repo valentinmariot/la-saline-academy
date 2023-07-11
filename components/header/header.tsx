@@ -4,7 +4,7 @@ import BasicIcon from "../basicIcon/basicIcon";
 import InputContainer from "../inputContainer/inputContainer";
 import Link from "next/link";
 import Image from "next/image";
-
+import { signOut } from "next-auth/react";
 import styles from "./header.module.scss";
 
 interface HeaderProps {
@@ -12,6 +12,11 @@ interface HeaderProps {
 }
 
 const Header = ({ onBurgerMenuClick }: HeaderProps) => {
+
+  const handleSignOut = () => {
+    signOut();
+  };
+
   return (
     <>
       <header className={styles.header + " glassmorphism"}>
@@ -42,6 +47,10 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
           <BasicIcon name="profile" />
           Mon profil
         </Link>
+        <button onClick={handleSignOut} className="btn btn-purple-solid-intense">
+          <BasicIcon name="logout" />
+          Se deconnecter
+        </button>
       </header>
     </>
   );

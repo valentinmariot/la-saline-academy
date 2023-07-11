@@ -1,12 +1,15 @@
 import { signIn } from "next-auth/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import InputContainer from "@/components/inputContainer/inputContainer";
 import { useRouter } from "next/router";
+import useGetAllUsers from "@/hooks/user/useGetAllUsers";
+
 const Login = () => {
+  const user = useGetAllUsers();
   const [userInfo, setUserInfo] = useState({
     email: "",
-    password: "",
+    password: ""
   });
   const router = useRouter();
   const handleLogin = async (e: any) => {
@@ -22,6 +25,9 @@ const Login = () => {
     }
     console.log(res);
   };
+  useEffect(() => {
+    user.fetchData();
+  }, []);
 
   const handleChangeEmail = (e: any) => {
     setUserInfo({ ...userInfo, email: e.target.value });
@@ -45,6 +51,7 @@ const Login = () => {
             <InputContainer
               id="1"
               type="email"
+              pattern=".+@globex\.com"
               label="E-mail"
               placeholder="Votre email"
               onChange={(e: any) => handleChangeEmail(e)}
