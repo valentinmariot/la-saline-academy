@@ -4,6 +4,7 @@ import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Home = () => {
   const session = useSession();
@@ -34,7 +35,17 @@ const Home = () => {
       </>
     );
   } else {
-    return <h1>Home page</h1>;
+    return (
+      <div className="dflexcolumn">
+          <h1>Landing page</h1>
+          <Link href="/authentification/login" className="btn btn-purple-link hover-effect">
+              Se connecter
+          </Link>
+          <Link href="/authentification/register" className="btn btn-purple-solid-intense">
+              S'enregistrer
+          </Link>
+      </div>
+    );
   }
 };
 
