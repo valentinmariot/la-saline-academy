@@ -1,14 +1,11 @@
 // App.tsx
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "@/components/header/header";
-import MenuLateral from "@/components/menuLateral/menuLateral";
 
 import "../styles/global.scss";
-import styles from "@/components/menuLateral/menuLateral.module.scss";
 
 export default function App({
   Component,

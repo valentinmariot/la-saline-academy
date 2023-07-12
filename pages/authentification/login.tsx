@@ -9,7 +9,7 @@ const Login = () => {
   const user = useGetAllUsers();
   const [userInfo, setUserInfo] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const router = useRouter();
   const handleLogin = async (e: any) => {

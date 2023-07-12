@@ -12,7 +12,6 @@ interface HeaderProps {
 }
 
 const Header = ({ onBurgerMenuClick }: HeaderProps) => {
-
   const handleSignOut = () => {
     signOut();
   };
@@ -47,7 +46,10 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
           <BasicIcon name="profile" />
           Mon profil
         </Link>
-        <button onClick={handleSignOut} className="btn btn-purple-solid-intense">
+        <button
+          onClick={handleSignOut}
+          className="btn btn-purple-solid-intense"
+        >
           <BasicIcon name="logout" />
           Se deconnecter
         </button>

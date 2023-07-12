@@ -1,4 +1,3 @@
-import BasicIcon from "@/components/basicIcon/basicIcon";
 import Head from "next/head";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
