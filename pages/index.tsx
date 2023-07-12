@@ -37,13 +37,19 @@ const Home = () => {
   } else {
     return (
       <div className="dflexcolumn">
-          <h1>Landing page</h1>
-          <Link href="/authentification/login" className="btn btn-purple-link hover-effect">
-              Se connecter
-          </Link>
-          <Link href="/authentification/register" className="btn btn-purple-solid-intense">
-              S'enregistrer
-          </Link>
+        <h1>Landing page</h1>
+        <Link
+          href="/authentification/login"
+          className="btn btn-purple-link hover-effect"
+        >
+          Se connecter
+        </Link>
+        <Link
+          href="/authentification/register"
+          className="btn btn-purple-solid-intense"
+        >
+          Inscription
+        </Link>
       </div>
     );
   }
