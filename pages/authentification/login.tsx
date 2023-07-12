@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Accueil - La Saline Academy</title>
+        <title>Connection - La Saline Academy</title>
       </Head>
       <main className={styles.login_page}>
         <div className={styles.login_page_container}>
@@ -70,7 +70,7 @@ const Login = () => {
               />
               <InputContainer
                 id="2"
-                type="text"
+                type="password"
                 label="Mot de passe"
                 placeholder="Votre mot de passe"
                 onChange={(e: any) => handleChangePassword(e)}
