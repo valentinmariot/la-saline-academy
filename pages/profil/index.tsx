@@ -118,12 +118,12 @@ const Profil = () => {
         <div className="grid4">
           <Card
             author="Charles-Lucas Maxime"
+            image=""
             time="30"
             point="230"
             language="Français"
             desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
             href="cours/detail"
-            image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
             tagLink="#"
             isNew
             tagName="Violon"
@@ -131,34 +131,34 @@ const Profil = () => {
           />
           <Card
             author="Charles-Lucas Maxime"
+            image=""
             time="30"
             point="230"
             language="Français"
             desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
             href="cours/detail"
-            image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
             tagLink="#"
             title="Prendre en main le solfège"
           />
           <Card
             author="Charles-Lucas Maxime"
             time="30"
+            image=""
             point="230"
             language="Français"
             desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
             href="cours/detail"
-            image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
             tagLink="#"
             title="Prendre en main le solfège"
           />
           <Card
             author="Charles-Lucas Maxime"
             time="30"
+            image=""
             point="230"
             language="Français"
             desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
             href="cours/detail"
-            image="https://www.cenon.fr/sites/default/files/styles/actu_evenement_1400x805px/public/2019-04/4-ecole-de-musique-concert-enfants-cenon%40CGoussard.jpg?h=2a02e5e1&itok=24jRwHjg"
             tagLink="#"
             title="Prendre en main le solfège"
           />
