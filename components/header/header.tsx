@@ -16,6 +16,10 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
     signOut();
   };
 
+  const handleChangeSearch = (e: any) => {
+    console.log(e);
+  };
+
   return (
     <>
       <header className={styles.header + " glassmorphism"}>
@@ -39,6 +43,7 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
             icon="search"
             type="text"
             required
+            onChange={(e: any) => handleChangeSearch(e)}
           />
         </form>
 
