@@ -23,12 +23,18 @@
 }
 html{
   font-family: $--text-font;
-  font-size: $--font-size;
   font-weight: 400;
   line-height: auto;
   color: $--gray-50;
   background: $--gray-900;
   scroll-behavior: smooth;
+  font-size: 18px;
+  @media only screen and (max-width: 800px){
+    font-size: 16px;
+  }
+  @media only screen and (max-width: 500px){
+    font-size: 14px;
+  }
 }
 .menu{
   background: rgba(51, 51, 51, 0.40);

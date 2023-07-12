@@ -3,7 +3,6 @@ import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import { motion, AnimatePresence } from "framer-motion";
 
 import "../styles/global.scss";
 
@@ -89,26 +88,7 @@ export default function App({
         />
         <meta name="theme-color" content="#1a1a1a" />
       </Head>
-      <AnimatePresence>
-        <motion.div
-          exit="pageExit"
-          initial="pageInitial"
-          animate="pageAnimate"
-          variants={{
-            pageInitial: {
-              opacity: 0,
-            },
-            pageAnimate: {
-              opacity: 1,
-            },
-            pageExit: {
-              opacity: 0,
-            },
-          }}
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
+      <Component {...pageProps} />
     </SessionProvider>
   );
 }
