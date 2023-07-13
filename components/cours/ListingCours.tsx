@@ -2,16 +2,28 @@ import useGetAllCourse from "@/hooks/course/useGetAllCourse";
 import { useEffect, useState } from "react";
 import Card from "@/components/card/card";
 
+interface CourseList {
+  id: string;
+  name: string;
+  description: string;
+}
+
 const ListingCours = () => {
   const coursesListing = useGetAllCourse();
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState<CourseList[]>([
+    {
+      id: "",
+      name: "",
+      description: "",
+    },
+  ]);
 
   useEffect(() => {
     coursesListing.fetchData();
   }, []);
 
   useEffect(() => {
-    if (coursesListing.data) {
+    if (coursesListing.data && Array.isArray(coursesListing.data)) {
       setCourses(coursesListing.data);
     } else if (coursesListing.error) {
       console.log("probleme");
