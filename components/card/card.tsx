@@ -45,7 +45,7 @@ const Card: FC<CardProps> = ({
       )}
       {image && (
         <figure>
-          <Image src={image} alt={title} height="180" width="500"/>
+          <Image src={image} alt={title} height="180" width="500" />
         </figure>
       )}
       <div className={styles.card_content}>
