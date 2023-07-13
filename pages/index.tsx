@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import ListingCours from "@/components/cours/ListingCours";

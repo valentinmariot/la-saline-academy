@@ -2,9 +2,7 @@ import Head from "next/head";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
-import ListingCours from "@/components/cours/ListingCours";
 import React, { useState } from "react";
-import { useSession } from "next-auth/react";
 
 const Course = () => {
   const [isMenuMoved, setMenuMoved] = useState(false);

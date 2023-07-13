@@ -2,7 +2,6 @@ import useGetAllCourse from "@/hooks/course/useGetAllCourse";
 import { useEffect, useState } from "react";
 import Card from "@/components/card/card";
 
-
 const ListingCours = () => {
   const coursesListing = useGetAllCourse();
   const [courses, setCourses] = useState([]);
@@ -19,12 +18,17 @@ const ListingCours = () => {
     }
   }, [coursesListing.data, coursesListing.error]);
 
-
   return (
     <>
       {courses.map((course, index) => (
-        <Card key={index} title={course.name} href={`/course/${course.name}/${course.id}`} author={"Maxime"}
-              desc={course.description} tagLink={"TagLink"} />
+        <Card
+          key={index}
+          title={course.name}
+          href={`/course/${course.name}/${course.id}`}
+          author={"Maxime"}
+          desc={course.description}
+          tagLink={"TagLink"}
+        />
       ))}
     </>
   );
