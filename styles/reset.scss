@@ -177,6 +177,41 @@ input,textarea, .input,select{
   transition: $--smooth;
   border: none;
 }
+.section{
+  width: 100%;
+  gap: $--2m;
+  display: flex;
+  flex-direction: column;
+  .head_cours{
+    justify-content: space-between;
+    width: 100%;
+  }
+  .grid_cours{
+    display: grid;
+    grid-gap: $--2m;
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+.section_tag{
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: $--2m;
+  padding-bottom: 6px;
+  &::-webkit-scrollbar{
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: $--gray-500;
+  }
+}
 button{
   background: none;
   border: none;
