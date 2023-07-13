@@ -1,18 +1,16 @@
 import styles from "styles/_pages/profil.module.scss";
 import Head from "next/head";
+import Template from "@/components/template/template";
 
 const EditProfil = () => {
   return (
-    <>
-      <Head>
-        <title>Modifier mon profil - La Saline Academy</title>
-      </Head>
-      <h1 className="sr-only">Modifier mon profil</h1>
+      <Template title="Paramètre profil">
+          <div className={styles.page_editProfil}>
+              <h1 className="sr-only">Modifier mon profil</h1>
 
-      <div className={styles.page_editProfil}>
-        <h3>edit</h3>
-      </div>
-    </>
+              <h3>edit</h3>
+          </div>
+      </Template>
   );
 };
 
