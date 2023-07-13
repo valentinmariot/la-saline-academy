@@ -10,7 +10,7 @@ const Home = () => {
   if (session.status === "authenticated") {
     return (
       <Template title="Accueil">
-          <ListingCours />
+        <ListingCours />
       </Template>
     );
   } else if (session.status === "unauthenticated") {

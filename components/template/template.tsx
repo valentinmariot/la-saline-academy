@@ -5,11 +5,12 @@ import styles from "@/components/menuLateral/menuLateral.module.scss";
 import Head from "next/head";
 
 interface TemplateProps {
+  children: any;
   props: any;
   title: string;
 }
 
-const Template: FC<TemplateProps> = (props, title: any) => {
+const Template: FC<TemplateProps> = (props) => {
   const [isMenuMoved, setMenuMoved] = useState(false);
 
   const handleBurgerMenuClick = () => {
@@ -19,7 +20,7 @@ const Template: FC<TemplateProps> = (props, title: any) => {
   return (
     <>
       <Head>
-        <title>{title} - La Saline Academy</title>
+        <title>{props.title} - La Saline Academy</title>
       </Head>
       <Header onBurgerMenuClick={handleBurgerMenuClick} />
       <main>
