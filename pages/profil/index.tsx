@@ -39,10 +39,9 @@ const Profil = () => {
     } else if (session.status === "unauthenticated") {
       router.push("/");
     }
-  }, [id]);
+  }, []);
 
   useEffect(() => {
-    console.log(getUser.data);
     if (getUser.data) {
       console.log(getUser.data);
     } else {
@@ -53,6 +52,7 @@ const Profil = () => {
 
   return (
     <Template title="Profil">
+      <h1>{getUser?.data?.userId}</h1>
       <div className={styles.page_profil}>
         <h1 className="sr-only">Mon profil</h1>
 
