@@ -1,5 +1,4 @@
-import Head from "next/head";
-import React, { useState } from "react";
+import React from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Template from "@/components/template/template";
@@ -9,9 +8,9 @@ const Home = () => {
 
   if (session.status === "authenticated") {
     return (
-          <Template title="Accueil">
-              <h3>Hey</h3>
-          </Template>
+      <Template title="Accueil">
+        <h3>Hey</h3>
+      </Template>
     );
   } else {
     return (
