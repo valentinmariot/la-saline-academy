@@ -1,6 +1,7 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import ListingCours from "@/components/cours/ListingCours";
 import Template from "@/components/template/template";
 
 const Home = () => {
@@ -9,10 +10,10 @@ const Home = () => {
   if (session.status === "authenticated") {
     return (
       <Template title="Accueil">
-        <h3>Hey</h3>
+          <ListingCours />
       </Template>
     );
-  } else {
+  } else if (session.status === "unauthenticated") {
     return (
       <div className="dflexcolumn">
         <h1>Landing page</h1>
