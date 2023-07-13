@@ -1,5 +1,5 @@
 import useGetAllCourse from "@/hooks/course/useGetAllCourse";
-import {FC, useEffect, useState} from "react";
+import { FC, useEffect, useState } from "react";
 import Card from "@/components/card/card";
 
 interface CourseList {
@@ -11,9 +11,7 @@ interface ListingCoursProps {
   slice: string;
 }
 
-const ListingCours: FC<ListingCoursProps> = ({
- slice= "24",
-}) => {
+const ListingCours: FC<ListingCoursProps> = ({ slice = "24" }) => {
   const coursesListing = useGetAllCourse();
   const [courses, setCourses] = useState<CourseList[]>([
     {
