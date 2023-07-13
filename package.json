@@ -12,6 +12,8 @@
     "check": "npx tsc --noEmit && npx eslint . && npx prettier --write"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.1.1",
+    "@stripe/stripe-js": "^1.54.1",
     "framer-motion": "^10.12.18",
     "next": "13.4.7",
     "next-auth": "^4.22.1",

@@ -25,6 +25,9 @@ const Register = () => {
     }));
     setFormStep((prevFormStep) => prevFormStep + 1);
   };
+  const bankSubmit = () => {
+    setFormStep((prevFormStep) => prevFormStep + 1);
+  };
 
   useEffect(() => {
     if (register.data) {
@@ -49,16 +52,17 @@ const Register = () => {
             <RegisterPack onNext={nextFormStep} />
           </div>
         )}
-        {formStep === 2 && (
+        {formStep === 2 && userData.planId !== 1 && (
           <div>
-            <RegisterBank onNext={nextFormStep} />
+            <RegisterBank onNext={bankSubmit} userData={userData} />
           </div>
         )}
-        {formStep === 3 && (
-          <div>
-            <RegisterInstrument onNext={nextFormStep} />
-          </div>
-        )}
+        {formStep === 3 ||
+          (formStep === 2 && userData.planId === 1 && (
+            <div>
+              <RegisterInstrument onNext={nextFormStep} />
+            </div>
+          ))}
       </div>
     </>
   );
