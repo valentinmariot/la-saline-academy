@@ -1,5 +1,5 @@
 import useGetAllCourse from "@/hooks/course/useGetAllCourse";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Card from "@/components/card/card";
 
 interface CourseList {
@@ -7,8 +7,11 @@ interface CourseList {
   name: string;
   description: string;
 }
+interface ListingCoursProps {
+  slice: string;
+}
 
-const ListingCours = () => {
+const ListingCours: FC<ListingCoursProps> = ({ slice = "24" }) => {
   const coursesListing = useGetAllCourse();
   const [courses, setCourses] = useState<CourseList[]>([
     {
@@ -32,7 +35,7 @@ const ListingCours = () => {
 
   return (
     <>
-      {courses.map((course, index) => (
+      {courses.slice(0, slice).map((course, index) => (
         <Card
           key={index}
           title={course.name}
