@@ -49,23 +49,6 @@
       flex-wrap: nowrap;
       gap: $--0-5m;
     }
-    .tags{
-      width: 100%;
-      overflow-x: scroll;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: nowrap;
-      gap: $--2m;
-      padding-bottom: 6px;
-      &::-webkit-scrollbar{
-        height: 5px;
-      }
-      &::-webkit-scrollbar-thumb{
-        background: $--gray-500;
-      }
-    }
   }
   .head_cours{
     justify-content: space-between;

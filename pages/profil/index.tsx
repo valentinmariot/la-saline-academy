@@ -100,15 +100,15 @@ const Profil = () => {
             <BasicIcon name="poin" size="m" />
             7890pts
           </div>
-          <div id="tag" className={styles.tags}>
+          <div id="tag" className="section_tag">
             <Tag name="violon" href="" />
             <Tag name="guitare" href="" />
             <Tag name="zazz" href="" color="orange" />
           </div>
         </div>
         <hr />
-        <div>
-          <div className={styles.head_cours + " dflex"}>
+        <div className="section">
+          <div className="head_cours dflex">
             <h4>
               Reprendre vos <span className="purple">cours</span>
             </h4>
@@ -116,7 +116,7 @@ const Profil = () => {
               Voir tout
             </a>
           </div>
-          <div className="grid4">
+          <div className="grid_cours">
             <Card
               author="Charles-Lucas Maxime"
               image=""
