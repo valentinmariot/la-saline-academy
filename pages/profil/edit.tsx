@@ -1,5 +1,8 @@
 import styles from "styles/_pages/profil.module.scss";
 import Template from "@/components/template/template";
+import BasicIcon from "../../components/basicIcon/basicIcon";
+import InputContainer from "../../components/inputContainer/inputContainer";
+import React from "react";
 
 const EditProfil = () => {
   return (
@@ -7,9 +10,78 @@ const EditProfil = () => {
       <div className={styles.page_editProfil}>
         <h1 className="sr-only">Modifier mon profil</h1>
 
-        <div></div>
-        <div className="hr_vertical"></div>
-        <div></div>
+        <div className={styles.tab_left}>
+            <button className="button_profil">
+                <BasicIcon name="profile"/>
+                Infos perso
+            </button>
+            <button className="button_profil">
+                <BasicIcon name="edit"/>
+                Quick notes
+            </button>
+            <button className="button_profil button_profil__destructive">
+                <BasicIcon name="logout"/>
+                Déconnexion
+            </button>
+        </div>
+        <hr className="hr_vertical"></hr>
+        <div className={styles.right}>
+            <form className={styles.param_page}>
+                <div className={styles.param_title}>
+                    <BasicIcon name="profile" size="l"/>
+                    <h2 className="h3">Infos perso</h2>
+                </div>
+
+                <div className="dflex gap16">
+                    <InputContainer
+                        required
+                        id="lastname"
+                        type="text"
+                        label="Nom"
+                        placeholder="Votre nom"
+                        onChange
+                    />
+                    <InputContainer
+                        required
+                        id="firstname"
+                        type="text"
+                        label="Prénom"
+                        placeholder="Votre prénom"
+                        onChange
+                    />
+                </div>
+
+                <div className={styles.grid3 + ' grid3 '}>
+                    <InputContainer
+                        required
+                        id="password"
+                        type="password"
+                        label="Mot de passe actuel"
+                        placeholder="Votre mot de passe actuel"
+                        onChange
+                    />
+                    <InputContainer
+                        required
+                        id="new-password"
+                        type="password"
+                        label="Nouveau mot de passe"
+                        placeholder="Votre nouveau mot de passe"
+                        onChange
+                    />
+                    <InputContainer
+                        required
+                        id="confirm-new-password"
+                        type="password"
+                        label="Confirmer nouveau mot de passe"
+                        placeholder="Confirmer votre nouveau mot de passe"
+                        onChange
+                    />
+                </div>
+
+
+
+            </form>
+        </div>
       </div>
     </Template>
   );
