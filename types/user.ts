@@ -5,4 +5,5 @@ export interface UserData {
   password: string;
   roleId: number;
   planId: number;
+  instrumentId?: number;
 }

@@ -29,6 +29,7 @@ const useRegister = <T>(): {
           password: userData.password,
           roleId: userData.roleId,
           planId: userData.planId,
+          instrumentId: userData.instrumentId,
         }),
       };
       const result = await fetchWrapper<T>(endpoint, config);

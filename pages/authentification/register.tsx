@@ -1,3 +1,4 @@
+// Register component
 import useRegister from "@/hooks/authentification/useRegister";
 import { useEffect, useState } from "react";
 import { UserData } from "@/types/user";
@@ -15,6 +16,7 @@ const Register = () => {
     password: "",
     roleId: 1,
     planId: 1,
+    instrumentId: undefined,
   });
   const [formStep, setFormStep] = useState(0);
 
@@ -25,19 +27,23 @@ const Register = () => {
     }));
     setFormStep((prevFormStep) => prevFormStep + 1);
   };
-  const bankSubmit = () => {
-    setFormStep((prevFormStep) => prevFormStep + 1);
-  };
 
   useEffect(() => {
-    if (register.data) {
-      console.log(register.data);
-    } else if (register.error) {
-      console.log(register.error);
-    }
-  }, [register.data, register.error]);
+    const createUser = async () => {
+      try {
+        await register.fetchData(userData);
+        // Handle successful user creation
+        console.log("User created successfully!");
+      } catch (error) {
+        // Handle error during user creation
+        console.error("Error creating user:", error);
+      }
+    };
 
-  console.log(userData);
+    if (formStep === 3 || (formStep === 2 && userData.planId === 1)) {
+      createUser();
+    }
+  }, [formStep, register, userData]);
 
   return (
     <>
@@ -54,7 +60,7 @@ const Register = () => {
         )}
         {formStep === 2 && userData.planId !== 1 && (
           <div>
-            <RegisterBank onNext={bankSubmit} userData={userData} />
+            <RegisterBank onNext={nextFormStep} userData={userData} />
           </div>
         )}
         {formStep === 3 ||
