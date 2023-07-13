@@ -7,12 +7,12 @@ import BasicIcon from "@/components/basicIcon/basicIcon";
 import Image from "next/image";
 
 interface CardProps {
-  image: string;
+  image?: string;
   title: string;
   href: string;
   author: string;
   desc: string;
-  tagLink: string;
+  tagLink?: string;
   time?: string;
   language?: string;
   point?: string;
@@ -45,7 +45,7 @@ const Card: FC<CardProps> = ({
       )}
       {image && (
         <figure>
-          <Image src={image} alt={title} height="180" width="500"/>
+          <Image src={image} alt={title} height="180" width="500" />
         </figure>
       )}
       <div className={styles.card_content}>

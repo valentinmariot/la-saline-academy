@@ -2,9 +2,10 @@ import Head from "next/head";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import ListingCours from "@/components/cours/ListingCours";
 
 const Home = () => {
   const session = useSession();
@@ -29,12 +30,15 @@ const Home = () => {
               `${isMenuMoved ? styles.menuMoved : "smallContainer"}`
             }
           >
-            <div className="content border">{/*// content*/} hey</div>
+            <div className="content border">
+              {/*// content*/}
+              <ListingCours />
+            </div>
           </div>
         </main>
       </>
     );
-  } else {
+  } else if (session.status === "unauthenticated") {
     return (
       <div className="dflexcolumn">
         <h1>Landing page</h1>
@@ -54,5 +58,4 @@ const Home = () => {
     );
   }
 };
-
 export default Home;
