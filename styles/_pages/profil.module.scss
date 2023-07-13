@@ -74,5 +74,11 @@
 }
 
 .page_editProfil{
-
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  min-height: 100%;
+  gap: $--2m;
 }
