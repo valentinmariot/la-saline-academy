@@ -54,16 +54,17 @@ const MenuLateral = ({ isMenuMoved }: MenuLateralProps) => {
             </Link>
           </div>
           <div className="reseaux">
-            <a href="" target="_blank" rel="next">
+            {/*TODO: lien reseaux*/}
+            <a href="#" target="_blank" rel="next">
               <BasicIcon name="tiktok" size="s" />
             </a>
-            <a href="" target="_blank" rel="next">
+            <a href="#" target="_blank" rel="next">
               <BasicIcon name="youtube" size="s" />
             </a>
-            <a href="" target="_blank" rel="next">
+            <a href="#" target="_blank" rel="next">
               <BasicIcon name="twitter" size="s" />
             </a>
-            <a href="" target="_blank" rel="next">
+            <a href="#" target="_blank" rel="next">
               <BasicIcon name="instagram" size="s" />
             </a>
           </div>

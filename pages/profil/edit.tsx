@@ -3,6 +3,8 @@ import Template from "@/components/template/template";
 import BasicIcon from "../../components/basicIcon/basicIcon";
 import InputContainer from "../../components/inputContainer/inputContainer";
 import React from "react";
+import Tag from "../../components/tag/tag";
+import TagManager from "@/components/tagManager/tagManager";
 
 const EditProfil = () => {
   return (
@@ -72,14 +74,33 @@ const EditProfil = () => {
                         required
                         id="confirm-new-password"
                         type="password"
-                        label="Confirmer nouveau mot de passe"
+                        label="Confirmer mot de passe"
                         placeholder="Confirmer votre nouveau mot de passe"
                         onChange
                     />
                 </div>
 
+                <hr/>
 
+                <div className="dflexcolumn gap16">
+                    <h3 className="h4">Liste instruments</h3>
+                    <TagManager />
+                </div>
 
+                <hr/>
+
+                <div className="dflexcolumn gap16">
+                    <h3 className="h4">Changement de pack</h3>
+                    <div className="grid3 gap24">
+
+                    </div>
+                </div>
+
+                <hr/>
+
+                <button className="btn btn-purple-solid">
+                    Enregistrer les modifications
+                </button>
             </form>
         </div>
       </div>

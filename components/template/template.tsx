@@ -33,6 +33,25 @@ const Template: FC<TemplateProps> = (props) => {
         >
           <div className="content border">{props.children}</div>
         </div>
+
+        <svg id="TopWhiteOvalBlurry" width="300" height="587" viewBox="0 0 300 587" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse opacity="0.6" cx="-10.2612" cy="243.427" rx="305.736" ry="346.584" transform="rotate(-17.484 -10.2612 243.427)" fill="url(#paint0_radial_447_4929)"/>
+              <defs>
+                  <radialGradient id="paint0_radial_447_4929" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-10.2613 243.427) rotate(90) scale(346.584 305.736)">
+                      <stop stop-color="white" stop-opacity="0.75"/>
+                      <stop offset="1" stop-color="#ADADAD" stop-opacity="0"/>
+                  </radialGradient>
+              </defs>
+          </svg>
+        <svg id="whiteOvalBlurry" width="334" height="339" viewBox="0 0 334 339" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse opacity="0.6" cx="309.739" cy="343.427" rx="305.736" ry="346.584" transform="rotate(-17.484 309.739 343.427)" fill="url(#paint0_radial_303_12591)"/>
+              <defs>
+                  <radialGradient id="paint0_radial_303_12591" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(309.739 343.427) rotate(90) scale(346.584 305.736)">
+                      <stop stop-color="#F1E7FE"/>
+                      <stop offset="1" stop-color="#F1E7FE" stop-opacity="0"/>
+                  </radialGradient>
+              </defs>
+          </svg>
       </main>
     </>
   );

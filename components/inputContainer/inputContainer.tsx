@@ -15,6 +15,8 @@ interface InputContainerProps {
   required?: boolean;
   onChange: ChangeEventHandler;
   pattern?: string;
+  value: string;
+  onKeyPress: string;
 }
 
 const InputContainer: FC<InputContainerProps> = ({
@@ -29,6 +31,8 @@ const InputContainer: FC<InputContainerProps> = ({
   error,
   onChange,
   pattern,
+  value,
+  onKeyPress,
 }) => {
   return (
     <div className={styles.input}>
@@ -48,6 +52,9 @@ const InputContainer: FC<InputContainerProps> = ({
           className={icon && styles.withIcon}
           onChange={onChange}
           pattern={pattern}
+          value={value}
+          // @ts-ignore
+          onKeyPress={onKeyPress}
         />
       </div>
       {error && <span className={styles.input_error}>{error}</span>}

@@ -197,6 +197,9 @@
 .gap16{
   gap: $--2m;
 }
+.gap24{
+  gap: $--3m;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -209,4 +212,15 @@
 }
 .text_center{
   text-align: center;
+}
+
+#TopWhiteOvalBlurry{
+  left: 0;
+  top: 0;
+}
+#whiteOvalBlurry, #TopWhiteOvalBlurry{
+  position: fixed;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
 }
