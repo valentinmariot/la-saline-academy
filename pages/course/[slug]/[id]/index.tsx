@@ -46,7 +46,7 @@ const Course = () => {
           </div>
           <b className="dflex gap8 nowrap">
             Par{" "}
-            <Link href={} className="btn btn-purple-link hover-effect">
+            <Link href="" className="btn btn-purple-link hover-effect">
               Charles-Lucas Maxime
             </Link>
           </b>
