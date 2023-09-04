@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import Card from "@/components/card/card";
 
 interface ListingCoursProps {
-  slice: number;
+  slice?: number | 24;
 }
 
 interface CourseList {
@@ -12,7 +12,7 @@ interface CourseList {
   description: string;
 }
 
-const ListingCours: FC<ListingCoursProps> = ({ slice = 24 }) => {
+const ListingCours: FC<ListingCoursProps> = ({ slice }) => {
   const coursesListing = useGetAllCourse();
   const [courses, setCourses] = useState<CourseList[]>([
     {
