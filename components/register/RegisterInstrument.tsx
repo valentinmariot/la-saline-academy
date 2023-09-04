@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Instrument } from "@/types/instrumentType";
 import useGetAllInstrument from "@/hooks/instrument/useGetAllInstrument";
 
@@ -42,18 +42,25 @@ const RegisterInstrument: React.FC<RegisterInstrumentProps> = ({ onNext }) => {
       </p>
       <div>
         {Object.keys(groupedInstruments).map((categoryId) => (
-            <div key={categoryId}>
-              <h3>{instruments.data.find((instrument) => instrument.category.id === parseInt(categoryId, 10))?.category.name}</h3>
-              {groupedInstruments[categoryId].map((instrument) => (
-                  <button
-                      key={instrument.id}
-                      className="btn btn-purple-solid-intense"
-                      onClick={() => handleNext(instrument.id)}
-                  >
-                    {instrument.name}
-                  </button>
-              ))}
-            </div>
+          <div key={categoryId}>
+            <h3>
+              {
+                instruments.data.find(
+                  (instrument) =>
+                    instrument.category.id === parseInt(categoryId, 10)
+                )?.category.name
+              }
+            </h3>
+            {groupedInstruments[categoryId].map((instrument) => (
+              <button
+                key={instrument.id}
+                className="btn btn-purple-solid-intense"
+                onClick={() => handleNext(instrument.id)}
+              >
+                {instrument.name}
+              </button>
+            ))}
+          </div>
         ))}
       </div>
     </>

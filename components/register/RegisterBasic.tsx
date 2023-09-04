@@ -62,10 +62,10 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
   const isFormValid = () => {
     const { firstname, lastname, email, password } = formValues;
     return (
-        firstname.trim() !== "" &&
-        lastname.trim() !== "" &&
-        isEmailValid(email) &&
-        password.trim() !== ""
+      firstname.trim() !== "" &&
+      lastname.trim() !== "" &&
+      isEmailValid(email) &&
+      password.trim() !== ""
     );
   };
 
@@ -84,48 +84,48 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
       </div>
       <div>
         <InputContainer
-            id="lastname"
-            label="Nom"
-            labelFor="lastname"
-            placeholder="Votre nom"
-            type="text"
-            required
-            value={formValues.lastname}
-            onChange={(e) => handleInputChange("lastname", e.target.value)}
-            error={validateField("lastname", formValues.lastname)}
+          id="lastname"
+          label="Nom"
+          labelFor="lastname"
+          placeholder="Votre nom"
+          type="text"
+          required
+          value={formValues.lastname}
+          onChange={(e) => handleInputChange("lastname", e.target.value)}
+          error={validateField("lastname", formValues.lastname)}
         />
         <InputContainer
-            id="firstname"
-            label="Prénom"
-            labelFor="firstname"
-            placeholder="Votre prénom"
-            type="text"
-            required
-            value={formValues.firstname}
-            onChange={(e) => handleInputChange("firstname", e.target.value)}
-            error={validateField("firstname", formValues.firstname)}
+          id="firstname"
+          label="Prénom"
+          labelFor="firstname"
+          placeholder="Votre prénom"
+          type="text"
+          required
+          value={formValues.firstname}
+          onChange={(e) => handleInputChange("firstname", e.target.value)}
+          error={validateField("firstname", formValues.firstname)}
         />
         <InputContainer
-            id="email"
-            label="E-mail"
-            labelFor="email"
-            placeholder="votre@email.fr"
-            type="email"
-            required
-            value={formValues.email}
-            onChange={(e) => handleInputChange("email", e.target.value)}
-            error={validateField("email", formValues.email)}
+          id="email"
+          label="E-mail"
+          labelFor="email"
+          placeholder="votre@email.fr"
+          type="email"
+          required
+          value={formValues.email}
+          onChange={(e) => handleInputChange("email", e.target.value)}
+          error={validateField("email", formValues.email)}
         />
         <InputContainer
-            id="password"
-            label="Mot de passe"
-            labelFor="password"
-            placeholder="Votre mot de passe"
-            type="password"
-            required
-            value={formValues.password}
-            onChange={(e) => handleInputChange("password", e.target.value)}
-            error={validateField("password", formValues.password)}
+          id="password"
+          label="Mot de passe"
+          labelFor="password"
+          placeholder="Votre mot de passe"
+          type="password"
+          required
+          value={formValues.password}
+          onChange={(e) => handleInputChange("password", e.target.value)}
+          error={validateField("password", formValues.password)}
         />
       </div>
       <button className="btn btn-purple-solid-intense" onClick={handleNext}>

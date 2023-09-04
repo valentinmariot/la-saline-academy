@@ -33,7 +33,7 @@ const Register = () => {
 
   useEffect(() => {
     users.fetchData();
-  }, [])
+  }, []);
 
   useEffect(() => {
     const createUser = async () => {
@@ -56,7 +56,6 @@ const Register = () => {
       console.log(users.data);
     }
   }, [formStep, register, userData]);
-
 
   return (
     <>
@@ -83,11 +82,11 @@ const Register = () => {
             </div>
           ))}
         {formStep === 4 ||
-            (formStep === 3 && userData.planId === 1 && (
-              <div>
-                <h3>Votre compte a été créé avec succès !</h3>
-              </div>
-            ))}
+          (formStep === 3 && userData.planId === 1 && (
+            <div>
+              <h3>Votre compte a été créé avec succès !</h3>
+            </div>
+          ))}
       </div>
     </>
   );
