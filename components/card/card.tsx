@@ -12,7 +12,7 @@ interface CardProps {
   href: string;
   author: string;
   desc: string;
-  tagLink?: string;
+  tagLink: string;
   time?: string;
   language?: string;
   point?: string;

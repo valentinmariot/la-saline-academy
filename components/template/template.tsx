@@ -5,12 +5,11 @@ import styles from "@/components/menuLateral/menuLateral.module.scss";
 import Head from "next/head";
 
 interface TemplateProps {
-  children: any;
-  props: any;
+  children: React.ReactNode;
   title: string;
 }
 
-const Template: FC<TemplateProps> = (props) => {
+const Template: FC<TemplateProps> = ({ children, title }) => {
   const [isMenuMoved, setMenuMoved] = useState(false);
 
   const handleBurgerMenuClick = () => {
@@ -20,7 +19,7 @@ const Template: FC<TemplateProps> = (props) => {
   return (
     <>
       <Head>
-        <title>{props.title} - La Saline Academy</title>
+        <title>{title} - La Saline Academy</title>
       </Head>
       <Header onBurgerMenuClick={handleBurgerMenuClick} />
       <main>
@@ -31,7 +30,7 @@ const Template: FC<TemplateProps> = (props) => {
             `${isMenuMoved ? styles.menuMoved : "smallContainer"}`
           }
         >
-          <div className="content border">{props.children}</div>
+          <div className="content border">{children}</div>
         </div>
 
         <svg id="TopWhiteOvalBlurry" width="300" height="587" viewBox="0 0 300 587" fill="none" xmlns="http://www.w3.org/2000/svg">
