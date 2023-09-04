@@ -89,7 +89,12 @@
 .dflex{
   display: flex !important;
 }
-
+.nowrap{
+  flex-wrap: nowrap;
+}
+.wrap{
+  flex-wrap: wrap;
+}
 .dflexcolumn{
   width: 100%;
   display: flex;
@@ -175,19 +180,24 @@
   background: rgba(51, 51, 51, 0.40);
   box-shadow: 0 0 32px 0 $--gray-900 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
   backdrop-filter: blur($--1m);
-  border: 1px solid rgba(128, 128, 128, 0.57);;
+  border: 1px solid rgba(128, 128, 128, 0.57);
+  white-space: nowrap;
   &__active{
     color: $--purple-200;
-    border: 1px solid $--purple-200;
   }
   &:hover{
-    border: 1px solid $--purple-200;
     box-shadow: 0 0 64px 0 $--gray-900 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
   }
   &__destructive{
     color: $--red-400 !important;
-    &:hover{
-      border: 1px solid $--red-400 !important;
+  }
+  @media (max-width: 600px){
+    padding: $--1m;
+    border-radius: $--0-5m;
+    font-size: 14px;
+    display: block;
+    span{
+      font-size: 16px;
     }
   }
 }

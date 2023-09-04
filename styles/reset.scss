@@ -287,3 +287,8 @@ a{
     color: $--orange-500;
   }
 }
+.hover-effect--red{
+  &:before{
+    background-color: $--red-400;
+  }
+}

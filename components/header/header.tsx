@@ -14,6 +14,7 @@ interface HeaderProps {
 const Header = ({ onBurgerMenuClick }: HeaderProps) => {
   const handleSignOut = () => {
     signOut();
+    window.location.reload();
   };
 
   const handleChangeSearch = (e: any) => {
