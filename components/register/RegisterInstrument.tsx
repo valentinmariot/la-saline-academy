@@ -1,43 +1,37 @@
-import React, { useState } from "react";
-import InputContainer from "@/components/inputContainer/inputContainer";
-import { UserData } from "@/types/user";
+import React, {useEffect} from "react";
 import { Instrument } from "@/types/instrumentType";
+import useGetAllInstrument from "@/hooks/instrument/useGetAllInstrument";
 
 type RegisterInstrumentProps = {
-  onNext: (data: Partial<UserData>) => void;
-  instrumentsData: Instrument[]; // Add this prop to receive the instrument data
+  onNext: (data: Partial<{ instrumentId: number }>) => void;
 };
 
-const RegisterInstrument: React.FC<RegisterInstrumentProps> = ({
-  onNext,
-  instrumentsData,
-}) => {
-  const [selectedKeyword, setSelectedKeyword] = useState("");
-  const [searchResults, setSearchResults] = useState<Instrument[]>([]);
-  const keywords =
-    instrumentsData?.map((instrument: Instrument) => instrument.name) || [];
+const RegisterInstrument: React.FC<RegisterInstrumentProps> = ({ onNext }) => {
+  const instruments = useGetAllInstrument();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value.toLowerCase(); // Convert search value to lowercase
-
-    setSelectedKeyword(e.target.value);
-    const filteredResults = keywords.filter((instrument) =>
-      instrument.toLowerCase().includes(searchValue)
-    );
-    const limitedResults = filteredResults.slice(0, 7); // Limit to 7 results
-    setSearchResults(limitedResults);
+  const handleNext = (instruId: number) => {
+    onNext({ instrumentId: instruId });
   };
 
-  const handleInstrumentClick = (instrumentId: number) => {
-    setSelectedKeyword("");
-    // Log the instrumentId or perform any other action with the instrument data
-    onNext({ instrumentId });
-  };
+  useEffect(() => {
+    instruments.fetchData();
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle form submission if needed
-  };
+  if (instruments.data) {
+    console.log(instruments.data);
+  }
+
+  // Group instruments by category
+  const groupedInstruments: { [categoryId: number]: Instrument[] } = {};
+  if (instruments.data) {
+    instruments.data.forEach((instrument) => {
+      const categoryId = instrument.category.id;
+      if (!groupedInstruments[categoryId]) {
+        groupedInstruments[categoryId] = [];
+      }
+      groupedInstruments[categoryId].push(instrument);
+    });
+  }
 
   return (
     <>
@@ -47,31 +41,20 @@ const RegisterInstrument: React.FC<RegisterInstrumentProps> = ({
         afin que nous puissions vous guider sur la voie de la réussite !
       </p>
       <div>
-        <form id="searchbar" onSubmit={handleSubmit}>
-          <InputContainer
-            id="search"
-            placeholder="Rechercher"
-            label="Rechercher un instrument"
-            labelFor="search"
-            type="text"
-            required
-            value={selectedKeyword}
-            onChange={handleInputChange}
-          />
-          <ul>
-            {searchResults.map((result) => (
-              <li
-                key={result.id}
-                onClick={() => handleInstrumentClick(result.id)}
-              >
-                {result.name}
-              </li>
-            ))}
-          </ul>
-          <button type="submit" className="btn btn-purple-solid-intense">
-            C&apos;est parti !
-          </button>
-        </form>
+        {Object.keys(groupedInstruments).map((categoryId) => (
+            <div key={categoryId}>
+              <h3>{instruments.data.find((instrument) => instrument.category.id === parseInt(categoryId, 10))?.category.name}</h3>
+              {groupedInstruments[categoryId].map((instrument) => (
+                  <button
+                      key={instrument.id}
+                      className="btn btn-purple-solid-intense"
+                      onClick={() => handleNext(instrument.id)}
+                  >
+                    {instrument.name}
+                  </button>
+              ))}
+            </div>
+        ))}
       </div>
     </>
   );

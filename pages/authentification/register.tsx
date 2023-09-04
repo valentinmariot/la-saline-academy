@@ -6,6 +6,7 @@ import RegisterBasic from "@/components/register/RegisterBasic";
 import RegisterPack from "@/components/register/RegisterPack";
 import RegisterBank from "@/components/register/RegisterBank";
 import RegisterInstrument from "@/components/register/RegisterInstrument";
+import useGetUserById from "@/hooks/user/useGetAllUsers";
 
 const Register = () => {
   const register = useRegister();
@@ -20,6 +21,8 @@ const Register = () => {
   });
   const [formStep, setFormStep] = useState(0);
 
+  const users = useGetUserById();
+
   const nextFormStep = (data: Partial<UserData>) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -27,6 +30,10 @@ const Register = () => {
     }));
     setFormStep((prevFormStep) => prevFormStep + 1);
   };
+
+  useEffect(() => {
+    users.fetchData();
+  }, [])
 
   useEffect(() => {
     const createUser = async () => {
@@ -40,10 +47,16 @@ const Register = () => {
       }
     };
 
-    if (formStep === 3 || (formStep === 2 && userData.planId === 1)) {
+    if (users.data) {
+      console.log(users.data);
+    }
+
+    if (formStep === 4 || (formStep === 3 && userData.planId === 1)) {
       createUser();
+      console.log(users.data);
     }
   }, [formStep, register, userData]);
+
 
   return (
     <>
@@ -69,6 +82,12 @@ const Register = () => {
               <RegisterInstrument onNext={nextFormStep} />
             </div>
           ))}
+        {formStep === 4 ||
+            (formStep === 3 && userData.planId === 1 && (
+              <div>
+                <h3>Votre compte a été créé avec succès !</h3>
+              </div>
+            ))}
       </div>
     </>
   );
