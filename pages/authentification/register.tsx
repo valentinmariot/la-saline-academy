@@ -66,7 +66,7 @@ const Register = () => {
                   type="text"
                   label="Nom"
                   placeholder="Votre nom"
-                  onChange={(e) =>
+                  onChange={(e: any) =>
                     setUserData({ ...userData, lastname: e.target.value })
                   }
                 />
@@ -76,7 +76,7 @@ const Register = () => {
                   type="text"
                   label="Prénom"
                   placeholder="Votre prénom"
-                  onChange={(e) =>
+                  onChange={(e: any) =>
                     setUserData({ ...userData, firstname: e.target.value })
                   }
                 />
@@ -90,7 +90,7 @@ const Register = () => {
                   pattern=".+@globex\.com"
                   label="E-mail"
                   placeholder="Votre email"
-                  onChange={(e) =>
+                  onChange={(e: any) =>
                     setUserData({ ...userData, email: e.target.value })
                   }
                 />
@@ -100,7 +100,7 @@ const Register = () => {
                   type="password"
                   label="Mot de passe"
                   placeholder="Votre mot de passe"
-                  onChange={(e) =>
+                  onChange={(e: any) =>
                     setUserData({ ...userData, password: e.target.value })
                   }
                 />
