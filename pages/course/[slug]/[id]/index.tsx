@@ -46,7 +46,7 @@ const Course = () => {
           </div>
           <b className="dflex gap8 nowrap">
             Par{" "}
-            <Link href="" className="btn btn-purple-link hover-effect">
+            <Link href="/profil" className="btn btn-purple-link hover-effect">
               Charles-Lucas Maxime
             </Link>
           </b>
@@ -66,8 +66,8 @@ const Course = () => {
             360pts
           </div>
           <div id="tag" className="section_tag">
-            <Tag name="Solfège" href="" />
-            <Tag name="Bases" href="" />
+            <Tag name="Solfège" href="/" />
+            <Tag name="Bases" href="/" />
           </div>
         </div>
         <hr />
@@ -86,7 +86,7 @@ const Course = () => {
             </p>
             <ul className={styles.listeLecons}>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="green"
                     name="checklist-circle"
@@ -97,7 +97,7 @@ const Course = () => {
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="green"
                     name="checklist-circle"
@@ -108,7 +108,7 @@ const Course = () => {
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="gray"
                     name="checklist-circle"
@@ -119,7 +119,7 @@ const Course = () => {
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="opacity0"
                     name="checklist-circle"
@@ -130,7 +130,7 @@ const Course = () => {
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="opacity0"
                     name="checklist-circle"
@@ -141,7 +141,7 @@ const Course = () => {
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/">
                   <BasicIcon
                     className="opacity0"
                     name="checklist-circle"
