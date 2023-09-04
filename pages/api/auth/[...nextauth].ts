@@ -12,15 +12,15 @@ export default NextAuth({
         email: {
           label: "email",
           type: "email",
-          placeholder: "jsmith@example.com"
+          placeholder: "jsmith@example.com",
         },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any) {
         try {
           const jsonData = {
             email: credentials?.email,
-            password: credentials?.password
+            password: credentials?.password,
           };
 
           const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/login`;
@@ -28,8 +28,8 @@ export default NextAuth({
             method: "POST",
             body: JSON.stringify(jsonData),
             headers: {
-              "Content-Type": "application/json"
-            }
+              "Content-Type": "application/json",
+            },
           };
           const user: any = await fetchWrapper(endpoint, config);
           if (user) {
@@ -40,8 +40,8 @@ export default NextAuth({
         }
 
         return null;
-      }
-    })
+      },
+    }),
   ],
 
   callbacks: {
@@ -61,13 +61,13 @@ export default NextAuth({
       // Send properties to the client, like an access_token and user id from a provider.
       session.accessToken = token.accessToken;
       return session;
-    }
+    },
   },
 
   theme: {
     colorScheme: "auto",
     brandColor: "",
-    logo: "/vercel.svg"
+    logo: "/vercel.svg",
   },
-  debug: process.env.NODE_ENV === "development"
+  debug: process.env.NODE_ENV === "development",
 });

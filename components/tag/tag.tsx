@@ -10,7 +10,7 @@ interface TagProps {
   color?: "purple" | "orange" | "new";
   size?: "xs" | "s";
   icon?: string;
-  onClick: string;
+  onClick?: string;
 }
 
 const Tag: FC<TagProps> = ({

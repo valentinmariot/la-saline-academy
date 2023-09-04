@@ -24,8 +24,8 @@ const Profil = () => {
     {
       title: "Prendre en main le solfège",
       desc: "Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège ",
-      href: "cours/detail"
-    }
+      href: "cours/detail",
+    },
   ];
 
   const visibleCardsNote = showAllCardsNote ? cardsNote : cardsNote.slice(0, 4);
@@ -49,10 +49,9 @@ const Profil = () => {
     }
   }, [getUser.data]);
 
-
   return (
     <Template title="Profil">
-      <h1>{getUser?.data?.userId}</h1>
+      <h1>{id}</h1>
       <div className={styles.page_profil}>
         <h1 className="sr-only">Mon profil</h1>
 

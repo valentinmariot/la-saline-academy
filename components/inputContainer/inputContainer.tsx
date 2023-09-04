@@ -53,7 +53,6 @@ const InputContainer: FC<InputContainerProps> = ({
           onChange={onChange}
           pattern={pattern}
           value={value}
-          // @ts-ignore
           onKeyPress={onKeyPress}
         />
       </div>

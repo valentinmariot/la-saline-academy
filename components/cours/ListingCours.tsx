@@ -18,8 +18,8 @@ const ListingCours: FC<ListingCoursProps> = ({ slice }) => {
     {
       id: "",
       name: "",
-      description: ""
-    }
+      description: "",
+    },
   ]);
 
   useEffect(() => {

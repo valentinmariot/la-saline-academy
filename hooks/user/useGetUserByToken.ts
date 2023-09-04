@@ -27,8 +27,8 @@ const useGetUserByToken = <T>(): {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
       const result = await fetchWrapper<T>(endpoint, config);
       setData(result);
