@@ -200,6 +200,62 @@
     }
   }
 }
+.input_card_pack{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.card_pack{
+  display: flex;
+  cursor: pointer;
+  padding: $--3m;
+  flex-direction: column;
+  align-items: center;
+  gap: $--2m;
+  justify-content: space-between;
+  border-radius: $--2m;
+  border: 1px solid $--gray-800;
+  background: $--gray-900;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  &>div:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: $--2m;
+    width: 100%;
+  }
+  &--title{
+    text-align: left;
+    width: 100%;
+  }
+  p{
+    font-size: 12px;
+    line-height: 16px;
+    color: $--gray-200;
+  }
+  #packActuel{
+    display: none;
+    font-family: $--title-font;
+    font-size: $--2m;
+    text-align: center;
+  }
+  &:hover{
+    border: 1px solid $--gray-600;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.input_card_pack[type="radio"]:checked+.card_pack{
+  border: 1px solid $--purple-200;
+  background: linear-gradient(180deg, rgba(191, 143, 250, 0.15) 0%, rgba(191, 143, 250, 0.45) 100%);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  #choisir{
+    display: none;
+  }
+  #packActuel{
+    display: block;
+  }
+}
 .gap8{
   gap: $--1m;
 }

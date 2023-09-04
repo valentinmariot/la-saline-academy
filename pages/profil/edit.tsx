@@ -139,7 +139,85 @@ const EditProfil = () => {
 
               <div className="dflexcolumn gap16">
                 <h3 className="h4">Changement de pack</h3>
-                <div className="grid3 gap24"></div>
+                <div className={styles.listing_pack}>
+                  <input
+                    className="input_card_pack"
+                    type="radio"
+                    id="freemium"
+                    name="pack"
+                    value="freemium"
+                  />
+                  <label htmlFor="freemium" className="card_pack">
+                    <div>
+                      <h5 className="card_pack--title">
+                        Pack <span className="purple">Freemium</span>
+                      </h5>
+                      <p>
+                        Ce pack permet d’accéder :
+                        <br />• à une minorité des formations disponibles
+                      </p>
+                    </div>
+                    <div>
+                      <div id="choisir" className="btn btn-purple-solid">
+                        Choisir
+                      </div>
+                      <h6 id="packActuel">Votre pack actuel</h6>
+                    </div>
+                  </label>
+
+                  <input
+                    className="input_card_pack"
+                    type="radio"
+                    id="premium"
+                    name="pack"
+                    value="premium"
+                  />
+                  <label htmlFor="premium" className="card_pack">
+                    <div>
+                      <h5 className="card_pack--title">
+                        Pack <span className="purple">Premium</span>
+                      </h5>
+                      <p>
+                        Ce pack permet d’accéder :
+                        <br />• au maximum des formations disponibles
+                        <br />• quick note
+                      </p>
+                    </div>
+                    <div>
+                      <div id="choisir" className="btn btn-purple-solid">
+                        Choisir
+                      </div>
+                      <h6 id="packActuel">Votre pack actuel</h6>
+                    </div>
+                  </label>
+
+                  <input
+                    className="input_card_pack"
+                    type="radio"
+                    id="vip"
+                    name="pack"
+                    value="vip"
+                  />
+                  <label htmlFor="vip" className="card_pack">
+                    <div>
+                      <h5 className="card_pack--title">
+                        Pack <span className="purple">VIP</span>
+                      </h5>
+                      <p>
+                        Ce pack permet d’accéder :
+                        <br />• au maximum des formations disponibles
+                        <br />• quick note
+                        <br />• ...
+                      </p>
+                    </div>
+                    <div>
+                      <div id="choisir" className="btn btn-purple-solid">
+                        Choisir
+                      </div>
+                      <h6 id="packActuel">Votre pack actuel</h6>
+                    </div>
+                  </label>
+                </div>
               </div>
 
               <hr />

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
@@ -11,6 +11,22 @@ interface TemplateProps {
 
 const Template: FC<TemplateProps> = ({ children, title }) => {
   const [isMenuMoved, setMenuMoved] = useState(false);
+
+  useEffect(() => {
+    // Fonction pour détecter la largeur de l'écran et mettre à jour isMenuMoved
+    function handleResize() {
+      const isMobile = window.innerWidth <= 768; // Vous pouvez ajuster cette valeur en fonction de vos besoins
+      setMenuMoved(isMobile);
+    }
+    // Ajoute un écouteur d'événement pour surveiller les changements de taille de l'écran
+    window.addEventListener("resize", handleResize);
+    // Appelez handleResize au chargement initial de la page
+    handleResize();
+    // Nettoyez l'écouteur d'événements lorsque le composant est démonté
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleBurgerMenuClick = () => {
     setMenuMoved(!isMenuMoved);
