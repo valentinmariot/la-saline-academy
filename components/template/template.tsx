@@ -5,11 +5,11 @@ import styles from "@/components/menuLateral/menuLateral.module.scss";
 import Head from "next/head";
 
 interface TemplateProps {
-  props: any;
+  children: React.ReactNode;
   title: string;
 }
 
-const Template: FC<TemplateProps> = (props, title: any) => {
+const Template: FC<TemplateProps> = ({ children, title }) => {
   const [isMenuMoved, setMenuMoved] = useState(false);
 
   const handleBurgerMenuClick = () => {
@@ -30,7 +30,7 @@ const Template: FC<TemplateProps> = (props, title: any) => {
             `${isMenuMoved ? styles.menuMoved : "smallContainer"}`
           }
         >
-          <div className="content border">{props.children}</div>
+          <div className="content border">{children}</div>
         </div>
       </main>
     </>

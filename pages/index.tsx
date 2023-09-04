@@ -27,7 +27,7 @@ const Home = () => {
             </a>
           </div>
           <div className="grid_cours">
-            <ListingCours slice="4" />
+            <ListingCours slice={4} />
           </div>
         </div>
         <hr />
@@ -39,7 +39,7 @@ const Home = () => {
             </h4>
           </div>
           <div className="grid_cours">
-            <ListingCours slice="4" />
+            <ListingCours slice={4} />
           </div>
         </div>
         <hr />
@@ -50,7 +50,7 @@ const Home = () => {
             </h4>
           </div>
           <div className="grid_cours">
-            <ListingCours slice="4" />
+            <ListingCours slice={4} />
           </div>
         </div>
         <hr />
