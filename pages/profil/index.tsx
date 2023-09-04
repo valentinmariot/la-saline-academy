@@ -51,7 +51,6 @@ const Profil = () => {
 
   return (
     <Template title="Profil">
-      <h1>{id}</h1>
       <div className={styles.page_profil}>
         <h1 className="sr-only">Mon profil</h1>
 

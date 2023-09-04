@@ -265,6 +265,9 @@
 .gap24{
   gap: $--3m;
 }
+.opacity0{
+  opacity: 0;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -278,7 +281,31 @@
 .text_center{
   text-align: center;
 }
-
+.quickNoteModale{
+  width: 100%;
+  display: flex;
+  padding: $--2m;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $--2m;
+  align-self: stretch;
+  border-radius: $--1m;
+  background: $--gray-800;
+  box-shadow: 0 0 32px 0 #1A1A1A inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  &--title{
+    font-size: $--3m;
+  }
+  h1, h2, h3, h4, h5, h6{
+    color: $--gray-500;
+    font-family: $--text-font !important;
+    font-weight: 700;
+  }
+  & p{
+    font-size: $--2m !important;
+    font-family: $--text-font;
+  }
+}
 #TopWhiteOvalBlurry{
   left: 0;
   top: 0;
