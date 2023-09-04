@@ -132,6 +132,7 @@ main{
     }
     @media (max-width: 500px){
       top: $--7m;
+      min-height: calc(100vh - 56px);
     }
   }
   .smallContainer{

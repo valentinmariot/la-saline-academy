@@ -80,6 +80,14 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: $--2m;
+    &>div{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: $--2m;
+    }
     @media (max-width: 1300px) {
       max-width: fit-content;
     }
@@ -87,15 +95,24 @@
       flex-direction: row;
       align-items: center;
       max-width: 100%;
-      overflow-y: scroll;
       height: auto;
       width: 100%;
-      padding-bottom: 10px;
-      border-bottom: 1px solid $--gray-400;
+      &>div{
+        width: auto;
+        overflow: overlay;
+        flex-direction: row;
+        padding-bottom: 4px;
+        align-items: center;
+        &::-webkit-scrollbar{
+          height: 4px;
+        }
+        &::-webkit-scrollbar-thumb{
+          background: $--gray-600;
+        }
+      }
     }
   }
   .right{
-    min-height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -15,8 +15,8 @@ interface InputContainerProps {
   required?: boolean;
   onChange: ChangeEventHandler;
   pattern?: string;
-  value: string;
-  onKeyPress: string;
+  value?: string;
+  onKeyPress?: string;
 }
 
 const InputContainer: FC<InputContainerProps> = ({

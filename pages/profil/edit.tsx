@@ -39,36 +39,38 @@ const EditProfil = () => {
       <div className={styles.page_editProfil}>
         <h1 className="sr-only">Modifier mon profil</h1>
         <div className={styles.tab_left}>
-          <button
-            id="tab1"
-            className={`button_profil ${
-              activeTab === "tab1" ? "button_profil__active" : ""
-            }`}
-            onClick={() => handleTabClick("tab1")}
-          >
-            <BasicIcon name="profile" />
-            Infos perso
-          </button>
-          <button
-            id="tab2"
-            className={`button_profil ${
-              activeTab === "tab2" ? "button_profil__active" : ""
-            }`}
-            onClick={() => handleTabClick("tab2")}
-          >
-            <BasicIcon name="edit" />
-            Quick notes
-          </button>
-          <button
-            id="tab3"
-            className={`button_profil button_profil__destructive ${
-              activeTab === "tab3" ? "button_profil__active" : ""
-            }`}
-            onClick={() => handleTabClick("tab3")}
-          >
-            <BasicIcon name="logout" />
-            Déconnexion
-          </button>
+          <div>
+            <button
+              id="tab1"
+              className={`button_profil ${
+                activeTab === "tab1" ? "button_profil__active" : ""
+              }`}
+              onClick={() => handleTabClick("tab1")}
+            >
+              <BasicIcon name="profile" />
+              Infos perso
+            </button>
+            <button
+              id="tab2"
+              className={`button_profil ${
+                activeTab === "tab2" ? "button_profil__active" : ""
+              }`}
+              onClick={() => handleTabClick("tab2")}
+            >
+              <BasicIcon name="edit" />
+              Quick notes
+            </button>
+            <button
+              id="tab3"
+              className={`button_profil button_profil__destructive ${
+                activeTab === "tab3" ? "button_profil__active" : ""
+              }`}
+              onClick={() => handleTabClick("tab3")}
+            >
+              <BasicIcon name="logout" />
+              Déconnexion
+            </button>
+          </div>
         </div>
         <hr className={styles.hr_vertical + " hr_vertical"}></hr>
 
@@ -210,7 +212,7 @@ const EditProfil = () => {
 
               <button onClick={handleSignOut} className="btn btn-red-solid">
                 <BasicIcon name="logout" />
-                Me déconnecter de l’application
+                Me déconnecter
               </button>
             </div>
           )}
