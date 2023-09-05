@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC } from "react";
+import { ChangeEventHandler, FC, KeyboardEventHandler } from "react";
 import BasicIcon from "../basicIcon/basicIcon";
 
 import styles from "./inputContainer.module.scss";
@@ -16,7 +16,7 @@ interface InputContainerProps {
   onChange: ChangeEventHandler;
   pattern?: string;
   value?: string;
-  onKeyPress?: string;
+  onKeyPress?: KeyboardEventHandler<HTMLInputElement>;
 }
 
 const InputContainer: FC<InputContainerProps> = ({
