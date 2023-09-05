@@ -5,8 +5,11 @@ import styles from "@/components/menuLateral/menuLateral.module.scss";
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import useI18n from "@/hooks/useI18n";
+import SwitchLang from "@/components/switchLang/switchLang";
 
 const Home = () => {
+  const { _string } = useI18n();
   const session = useSession();
   const [isMenuMoved, setMenuMoved] = useState(false);
 
@@ -37,7 +40,8 @@ const Home = () => {
   } else {
     return (
       <div className="dflexcolumn">
-        <h1>Landing page</h1>
+        <h1>{_string("landingPage")}</h1>
+        <SwitchLang />
         <Link
           href="/authentification/login"
           className="btn btn-purple-link hover-effect"

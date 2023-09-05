@@ -6,7 +6,9 @@ const useI18n = () => {
 
   useEffect(() => {
     const loadStrings = async () => {
-      const loadedStrings = await import(`./i18n/${currentLanguage}.json`);
+      const loadedStrings = await import(
+        `../public/i18n/${currentLanguage}.json`
+      );
       setStrings(loadedStrings.default);
     };
 
