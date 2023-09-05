@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./menuLateral.module.scss";
 import BasicIcon from "../basicIcon/basicIcon";
 import Link from "next/link";
+import SwitchLang from "../switchLang/switchLang";
 
 interface MenuLateralProps {
   isMenuMoved: boolean;
@@ -36,6 +37,9 @@ const MenuLateral = ({ isMenuMoved }: MenuLateralProps) => {
             <Link href="/forum" className="hover-effect">
               Forum
             </Link>
+          </li>
+          <li>
+            <SwitchLang />
           </li>
         </ul>
         <div className="footer">
