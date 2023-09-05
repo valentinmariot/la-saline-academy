@@ -95,7 +95,7 @@ const Course = () => {
             </p>
             <ul className={styles.listeLecons}>
               <li>
-                <Link href="/">
+                <Link href={`/course/[courseId]/1`}>
                   <BasicIcon
                     className="green"
                     name="checklist-circle"

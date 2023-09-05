@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import BasicIcon from "@/components/basicIcon/basicIcon";
 import useGetLessonById from "@/hooks/lesson/useGetLessonById";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Lesson {
   content: string;
@@ -16,23 +17,31 @@ interface Lesson {
     link: string;
   };
   course: {
+    id: number;
     name: string;
   };
 }
 
 const Lesson = () => {
+  const router = useRouter();
+  const { lessonId } = router.query;
   const [isMenuMoved, setMenuMoved] = useState(true);
 
   const handleBurgerMenuClick = () => {
     setMenuMoved(!isMenuMoved);
   };
 
-  const lessonListing = useGetLessonById();
-  const [lesson, setLesson] = useState<Lesson>();
+  const lessonListing: {
+    data: Lesson | null | undefined;
+    error: unknown;
+    isLoading: boolean;
+    fetchData: (id: number) => Promise<void>;
+  } = useGetLessonById();
+  const [lesson, setLesson] = useState<Lesson | undefined>();
 
   useEffect(() => {
-    lessonListing.fetchData(1);
-  }, []);
+    lessonListing.fetchData(parseInt(lessonId as string));
+  }, [lessonId]);
 
   useEffect(() => {
     if (lessonListing.data) {
@@ -56,10 +65,13 @@ const Lesson = () => {
         >
           <div className="grid2">
             <div className="dflexcolumn">
-              <div className="btn btn-purple-link hover-effect mr-auto">
+              <Link
+                href={`/course/${lesson?.course.id}`}
+                className="btn btn-purple-link hover-effect mr-auto"
+              >
                 <BasicIcon name="arrow-left" size="s" />
                 <p>Retour au détails du cours</p>
-              </div>
+              </Link>
               <div>
                 <iframe
                   width="960"
@@ -88,7 +100,7 @@ const Lesson = () => {
                 <p>Leçon 1/6 - {lesson?.course.name || ""}</p>
               </div>
               <p className="ml-auto">- {lesson?.course.name || ""}</p>
-              <p className="ml-auto">{lesson?.createdAt}</p>
+              <p className="ml-auto">date </p>
               <div className="dflex btn-purple-link hover-effect ml-auto">
                 <BasicIcon name="reply" size="s" />
                 <p>Partager</p>
