@@ -1,7 +1,6 @@
 import Template from "../../../../components/template/template";
 import styles from "../../../../styles/_pages/cours.module.scss";
 import BasicIcon from "@/components/basicIcon/basicIcon";
-import React from "react";
 import clipboardCopy from "clipboard-copy";
 import Tag from "@/components/tag/tag";
 import Link from "next/link";
@@ -74,12 +73,12 @@ const Course = () => {
         <div className="grid2 gap16">
           <div className="gap16 dflexcolumn">
             <p className={styles.description}>
-              Découvrez l'art de lire et comprendre la musique avec notre cours
-              de solfège en six leçons. Du mystère des notes et des clés à
-              l'interprétation des rythmes, des silences et des altérations,
-              nous vous guidons à travers le labyrinthe du langage musical. Que
-              vous soyez un musicien en herbe ou un virtuose en devenir, notre
-              cours est conçu pour vous aider à déchiffrer les partitions et à
+              Découvrez art de lire et comprendre la musique avec notre cours de
+              solfège en six leçons. Du mystère des notes et des clés à
+              linterprétation des rythmes, des silences et des altérations, nous
+              vous guidons à travers le labyrinthe du langage musical. Que vous
+              soyez un musicien en herbe ou un virtuose en devenir, notre cours
+              est conçu pour vous aider à déchiffrer les partitions et à
               enrichir votre expérience musicale. Rejoignez-nous et transformez
               les symboles et les signes sur le papier en mélodies et harmonies
               expressives.

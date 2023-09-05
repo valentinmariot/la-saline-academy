@@ -29,7 +29,6 @@ const ListingCours: FC<ListingCoursProps> = ({ slice }) => {
   useEffect(() => {
     if (coursesListing.data && Array.isArray(coursesListing.data)) {
       setCourses(coursesListing.data);
-      console.log(coursesListing.data);
     } else if (coursesListing.error) {
       console.log("probleme");
     }

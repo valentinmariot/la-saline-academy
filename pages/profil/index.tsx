@@ -5,7 +5,7 @@ import Tag from "@/components/tag/tag";
 import Card from "@/components/card/card";
 import Link from "next/link";
 import CardNote from "@/components/cardNote/cardNote";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Template from "@/components/template/template";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -14,7 +14,6 @@ import useGetUserByToken from "@/hooks/user/useGetUserByToken";
 const Profil = () => {
   const session = useSession();
   const router = useRouter();
-  const { id } = router.query;
   const getUser = useGetUserByToken();
 
   const [showAllCardsNote, setShowAllCardsNote] = useState(false);
