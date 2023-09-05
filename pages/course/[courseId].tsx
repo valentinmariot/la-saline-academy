@@ -1,5 +1,5 @@
-import Template from "../../../../components/template/template";
-import styles from "../../../../styles/_pages/cours.module.scss";
+import Template from "@/components/template/template";
+import styles from "@/styles/_pages/cours.module.scss";
 import BasicIcon from "@/components/basicIcon/basicIcon";
 import clipboardCopy from "clipboard-copy";
 import Tag from "@/components/tag/tag";

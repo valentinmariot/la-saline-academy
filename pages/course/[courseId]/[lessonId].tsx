@@ -37,7 +37,6 @@ const Lesson = () => {
   useEffect(() => {
     if (lessonListing.data) {
       setLesson(lessonListing.data);
-      console.log(lesson);
     }
   }, [lessonListing.data]);
 
