@@ -12,7 +12,7 @@ const Course = () => {
   };
 
   const goBack = () => {
-    window.history.back(); // Revenir à la page précédente
+    window.history.back();
   };
 
   return (
