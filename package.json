@@ -12,6 +12,7 @@
     "check": "npx tsc --noEmit && npx eslint . && npx prettier --write"
   },
   "dependencies": {
+    "clipboard-copy": "^4.0.1",
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "react": "18.2.0",

@@ -28,10 +28,7 @@ html{
   color: $--gray-50;
   background: $--gray-900;
   scroll-behavior: smooth;
-  font-size: 18px;
-  @media only screen and (max-width: 800px){
-    font-size: 16px;
-  }
+  font-size: 16px;
   @media only screen and (max-width: 500px){
     font-size: 14px;
   }
@@ -135,6 +132,7 @@ main{
     }
     @media (max-width: 500px){
       top: $--7m;
+      min-height: calc(100vh - 56px);
     }
   }
   .smallContainer{
@@ -159,6 +157,11 @@ hr{
   height: 1px;
   border: none;
   background: linear-gradient(90deg, rgba(216, 187, 252, 0.33), $--purple-100, rgba(216, 187, 252, 0.33)) !important;
+}
+hr.hr_vertical{
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(0deg, rgba(216, 187, 252, 0.33), $--purple-100, rgba(216, 187, 252, 0.33)) !important;
 }
 p{
   white-space: pre-line;
@@ -283,5 +286,10 @@ a{
     -webkit-transform: rotateX(0deg) translate3d(0,0%,0);
     transition: opacity .4s,color .4s,transform .4s;
     color: $--orange-500;
+  }
+}
+.hover-effect--red{
+  &:before{
+    background-color: $--red-400;
   }
 }

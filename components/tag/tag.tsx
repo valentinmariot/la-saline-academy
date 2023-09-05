@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import BasicIcon from "../basicIcon/basicIcon";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ interface TagProps {
   color?: "purple" | "orange" | "new";
   size?: "xs" | "s";
   icon?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 const Tag: FC<TagProps> = ({
@@ -18,6 +19,7 @@ const Tag: FC<TagProps> = ({
   size = "s",
   href,
   icon,
+  onClick,
 }) => {
   return (
     <Link
@@ -26,6 +28,7 @@ const Tag: FC<TagProps> = ({
         ${styles[`tag_${size}`]}
     `}
       href={href}
+      onClick={onClick}
     >
       {name}
       {icon && <BasicIcon name={icon} size={size} />}

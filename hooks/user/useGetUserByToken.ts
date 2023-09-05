@@ -2,18 +2,18 @@ import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
 
-const useGetUserById = <T>(): {
+const useGetUserByToken = <T>(): {
   data: T | null;
   error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (id: string) => Promise<void>;
+  fetchData: () => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (id: string) => {
-    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/getById/${id}`;
+  const fetchData = useCallback(async () => {
+    const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/getUserFromToken`;
 
     setIsLoading(true);
     setError(null);
@@ -42,4 +42,4 @@ const useGetUserById = <T>(): {
   return { data, error, isLoading, fetchData };
 };
 
-export default useGetUserById;
+export default useGetUserByToken;
