@@ -20,12 +20,20 @@ const Course = () => {
       <h1 className="sr-only">Prendre en main le solvège</h1>
       <div className={styles.page_cours + " dflexcolumn gap16 "}>
         <div className={styles.header_cours}>
+          <figure className={styles.banniere}>
+            <img
+              src="https://sf1.diapasonmag.fr/wp-content/uploads/diapason/2021/10/les-musiciens-orchestre-doivent-ils-adopter-une-tenue-vestimentaire-plus-cool.jpg"
+              alt=""
+            />
+          </figure>
           <div className={styles.title}>
             <div className="dflex wrap gap16">
-              <div className="dflex gap8">
-                <span className="btn btn-gray-link">
-                  <BasicIcon name="checklist-circle" size="l" />
-                </span>
+              <div className={styles.title_left + " dflex gap8 "}>
+                <BasicIcon
+                  name="checklist-circle"
+                  className="orange"
+                  size="m"
+                />
                 <h2 className="h3">Prendre en main le solvège</h2>
               </div>
               <button
@@ -37,13 +45,15 @@ const Course = () => {
             </div>
             <button
               onClick={goBack}
-              className="btn btn-purple-link hover-effect"
+              className={
+                styles.btnFermer + " btn btn-purple-link hover-effect "
+              }
             >
               Fermer
               <BasicIcon name="close-circle" size="m" />
             </button>
           </div>
-          <b className="dflex gap8 nowrap">
+          <b className={styles.author + " dflex gap8 nowrap"}>
             Par{" "}
             <Link href="/profil" className="btn btn-purple-link hover-effect">
               Charles-Lucas Maxime
@@ -156,21 +166,28 @@ const Course = () => {
             <h3 className="quickNoteModale--title">
               <BasicIcon name="edit" size="m" /> Quick note :
             </h3>
-            <p>
-              Ceci est le contenu de la note globale afin que l’utilisateur
-              puisse noter des informations sur le cours qu’il a commencé à
-              visionner
-              <br />
-              <br /> Astuces :
-              <br />• faire ceci
-              <br />• faire cela
-            </p>
+
             <hr />
-            <h4 className="h5">Leçon 1: Introduction au solfège</h4>
-            <p>Ma superbe note liée à la leçon sur l’introduction au solfège</p>
+
+            <Link href="/" className="quickNoteModale--blockLecon">
+              <h4 className="quickNoteModale--blockLecon--titre">
+                Leçon 1: Introduction au solfège
+              </h4>
+              <p>
+                Ma superbe note liée à la leçon sur l’introduction au solfège
+              </p>
+            </Link>
+
             <hr />
-            <h4 className="h5">Leçon 2: Introduction au solfège</h4>
-            <p>Ma superbe note liée à la leçon sur l’introduction au solfège</p>
+
+            <Link href="/" className="quickNoteModale--blockLecon">
+              <h4 className="quickNoteModale--blockLecon--titre">
+                Leçon 2: Introduction au solfège
+              </h4>
+              <p>
+                Ma superbe note liée à la leçon sur l’introduction au solfège
+              </p>
+            </Link>
           </div>
         </div>
       </div>

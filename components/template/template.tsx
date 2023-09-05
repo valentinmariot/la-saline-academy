@@ -15,7 +15,7 @@ const Template: FC<TemplateProps> = ({ children, title }) => {
   useEffect(() => {
     // Fonction pour détecter la largeur de l'écran et mettre à jour isMenuMoved
     function handleResize() {
-      const isMobile = window.innerWidth <= 768; // Vous pouvez ajuster cette valeur en fonction de vos besoins
+      const isMobile = window.innerWidth <= 1100; // Vous pouvez ajuster cette valeur en fonction de vos besoins
       setMenuMoved(isMobile);
     }
     // Ajoute un écouteur d'événement pour surveiller les changements de taille de l'écran
