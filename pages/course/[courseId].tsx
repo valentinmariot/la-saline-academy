@@ -7,21 +7,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import useGetCourseById from "@/hooks/course/useGetCourseById";
 import { useEffect, useState } from "react";
-
-interface Course {
-  id: number;
-  name: string;
-  description: string;
-  lesson: [
-    {
-      id: number;
-    }
-  ];
-}
+import { Course } from "@/types/coursesType";
 
 const Course = () => {
   const router = useRouter();
   const { courseId } = router.query;
+  let countPoints = 0;
 
   const copyURLToClipboard = () => {
     clipboardCopy(window.location.href);
@@ -32,12 +23,22 @@ const Course = () => {
     window.history.back();
   };
 
+  const handlePointsCourse = (tabCourse: Course | undefined) => {
+    if (tabCourse) {
+      for (let i = 0; i < tabCourse.lesson.length; i++) {
+        countPoints += tabCourse.lesson[i].points;
+      }
+      return countPoints;
+    }
+  };
+
   const oneCourse: {
     data: Course | null | undefined;
     error: unknown;
     isLoading: boolean;
     fetchData: (id: number) => Promise<void>;
   } = useGetCourseById();
+
   const [course, setCourse] = useState<Course>();
 
   useEffect(() => {
@@ -107,7 +108,7 @@ const Course = () => {
           </div>
           <div id="points" className={styles.points + " bold"}>
             <BasicIcon name="poin" size="m" />
-            360pts
+            {handlePointsCourse(course)}pts
           </div>
           <div id="tag" className="section_tag">
             <Tag name="Solfège" href="/" />

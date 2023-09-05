@@ -5,26 +5,17 @@ import styles from "@/components/menuLateral/menuLateral.module.scss";
 import React, { useState, useEffect } from "react";
 import BasicIcon from "@/components/basicIcon/basicIcon";
 import useGetLessonById from "@/hooks/lesson/useGetLessonById";
+import useGetCourseById from "@/hooks/course/useGetCourseById";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-interface Lesson {
-  content: string;
-  point: number;
-  order: number;
-  createdAt: Date | undefined;
-  video: {
-    link: string;
-  };
-  course: {
-    id: number;
-    name: string;
-  };
-}
+import { Course } from "@/types/coursesType";
+import { Lesson } from "@/types/lessonType";
 
 const Lesson = () => {
   const router = useRouter();
   const { lessonId } = router.query;
+  const { courseId } = router.query;
+
   const [isMenuMoved, setMenuMoved] = useState(true);
 
   const handleBurgerMenuClick = () => {
@@ -48,6 +39,39 @@ const Lesson = () => {
       setLesson(lessonListing.data);
     }
   }, [lessonListing.data]);
+
+  // Get les infos du cours lié à la leçon
+  const useGetCourse = useGetCourseById();
+  const [course, setCourse] = useState<Course | undefined>();
+  useEffect(() => {
+    useGetCourse.fetchData(parseInt(courseId as string));
+    if (useGetCourse.data) {
+      setCourse(useGetCourse.data);
+    }
+  }, [lesson?.course.id]);
+
+  const handleNumberLesson = () => {
+    if (course?.lesson) {
+      for (let i = 0; i <= course?.lesson.length - 1; i++) {
+        const idActualLesson = lesson?.id;
+        if (idActualLesson == course?.lesson[i].id) {
+          return i + 1;
+        }
+      }
+    }
+  };
+
+  const handleGoNextLesson = (id: string) => {
+    const idActualLesson = parseInt(id);
+    if (course?.lesson) {
+      for (let i = 0; i <= course?.lesson.length - 1; i++) {
+        if (idActualLesson == course.lesson[i].id) {
+          const idLessonToPush = course.lesson[i + 1].id;
+          router.push(`/course/${courseId}/${idLessonToPush}`);
+        }
+      }
+    }
+  };
 
   return (
     <>
@@ -83,21 +107,29 @@ const Lesson = () => {
                 ></iframe>
               </div>
               <div className="dflex">
-                <div className="btn btn-purple-link hover-effect mr-auto">
+                <button className="btn btn-purple-link hover-effect mr-auto">
                   <BasicIcon name="arrow-down" size="s" />
                   <p>Télécharger la partition</p>
-                </div>
+                </button>
               </div>
               <div>{lesson?.content || ""}</div>
             </div>
             <div className="dflexcolumn">
-              <div className="btn btn-purple-link hover-effect ml-auto">
-                <p>Leçon suivante</p>
-                <BasicIcon name="arrow-right" size="s" />
-              </div>
+              {handleNumberLesson() < course?.lesson.length ? (
+                <button
+                  onClick={() => handleGoNextLesson(lessonId as string)}
+                  className="btn btn-purple-link hover-effect ml-auto"
+                >
+                  <p>Leçon suivante</p>
+                  <BasicIcon name="arrow-right" size="s" />
+                </button>
+              ) : null}
               <div className="dflex ml-auto">
                 <BasicIcon name="checklist-circle" size="s" />
-                <p>Leçon 1/6 - {lesson?.course.name || ""}</p>
+                <p>
+                  Leçon {handleNumberLesson()}/{course?.lesson.length} -{" "}
+                  {lesson?.course.name || ""}
+                </p>
               </div>
               <p className="ml-auto">- {lesson?.course.name || ""}</p>
               <p className="ml-auto">date </p>
