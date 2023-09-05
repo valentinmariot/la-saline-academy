@@ -53,7 +53,7 @@ const Profil = () => {
 
   useEffect(() => {
     if (getUserById.data) {
-      console.log(getUserById.data);
+      console.log(getUserById.data, 'from id');
       setUserData({
         ...userData,
         firstname: getUserById.data.firstname,
