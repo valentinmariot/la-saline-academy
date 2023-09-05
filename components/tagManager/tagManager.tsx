@@ -1,5 +1,5 @@
 import Tag from "@/components/tag/tag";
-import React, { useState } from "react";
+import { useState } from "react";
 import InputContainer from "@/components/inputContainer/inputContainer";
 
 function TagManager() {

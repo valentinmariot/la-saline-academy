@@ -2,7 +2,7 @@ import styles from "styles/_pages/profil.module.scss";
 import Template from "@/components/template/template";
 import BasicIcon from "../../components/basicIcon/basicIcon";
 import InputContainer from "../../components/inputContainer/inputContainer";
-import React, { useState } from "react";
+import { useState } from "react";
 import { signOut } from "next-auth/react";
 import TagManager from "@/components/tagManager/tagManager";
 import CardNote from "../../components/cardNote/cardNote";

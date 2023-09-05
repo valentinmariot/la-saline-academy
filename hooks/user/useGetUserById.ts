@@ -23,7 +23,6 @@ const useGetUserById = <T>(): {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const token = session?.accessToken;
-      console.log(session, "h");
       const config = {
         method: "GET",
         headers: {

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Header from "@/components/header/header";
 import MenuLateral from "@/components/menuLateral/menuLateral";
 import styles from "@/components/menuLateral/menuLateral.module.scss";
