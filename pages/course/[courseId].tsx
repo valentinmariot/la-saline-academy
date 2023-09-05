@@ -4,8 +4,25 @@ import BasicIcon from "@/components/basicIcon/basicIcon";
 import clipboardCopy from "clipboard-copy";
 import Tag from "@/components/tag/tag";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import useGetCourseById from "@/hooks/course/useGetCourseById";
+import { useEffect, useState } from "react";
+
+interface Course {
+  id: number;
+  name: string;
+  description: string;
+  lesson: [
+    {
+      id: number;
+    }
+  ];
+}
 
 const Course = () => {
+  const router = useRouter();
+  const { courseId } = router.query;
+
   const copyURLToClipboard = () => {
     clipboardCopy(window.location.href);
     alert("Le lien du cours a été copié dans le presse-papiers.");
@@ -14,6 +31,24 @@ const Course = () => {
   const goBack = () => {
     window.history.back();
   };
+
+  const oneCourse: {
+    data: Course | null | undefined;
+    error: unknown;
+    isLoading: boolean;
+    fetchData: (id: number) => Promise<void>;
+  } = useGetCourseById();
+  const [course, setCourse] = useState<Course>();
+
+  useEffect(() => {
+    oneCourse.fetchData(parseInt(courseId as string));
+  }, [courseId]);
+
+  useEffect(() => {
+    if (oneCourse.data) {
+      setCourse(oneCourse.data);
+    }
+  }, [oneCourse.data]);
 
   return (
     <Template title="Cours">
@@ -34,7 +69,7 @@ const Course = () => {
                   className="orange"
                   size="m"
                 />
-                <h2 className="h3">Prendre en main le solvège</h2>
+                <h2 className="h3">{course?.name}</h2>
               </div>
               <button
                 onClick={copyURLToClipboard}
@@ -60,7 +95,7 @@ const Course = () => {
             </Link>
           </b>
           <div className={styles.infos}>
-            <div id="nb_cours">6 leçons</div>
+            <div id="nb_cours">{course?.lesson.length} leçons</div>
             <div id="language" className="italic">
               <BasicIcon name="chat-solo" size="s" />
               Français
@@ -82,84 +117,21 @@ const Course = () => {
         <hr />
         <div className="grid2 gap16">
           <div className="gap16 dflexcolumn">
-            <p className={styles.description}>
-              Découvrez art de lire et comprendre la musique avec notre cours de
-              solfège en six leçons. Du mystère des notes et des clés à
-              linterprétation des rythmes, des silences et des altérations, nous
-              vous guidons à travers le labyrinthe du langage musical. Que vous
-              soyez un musicien en herbe ou un virtuose en devenir, notre cours
-              est conçu pour vous aider à déchiffrer les partitions et à
-              enrichir votre expérience musicale. Rejoignez-nous et transformez
-              les symboles et les signes sur le papier en mélodies et harmonies
-              expressives.
-            </p>
+            <p className={styles.description}>{course?.description}</p>
             <ul className={styles.listeLecons}>
-              <li>
-                <Link href={`/course/[courseId]/1`}>
-                  <BasicIcon
-                    className="green"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 1: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <BasicIcon
-                    className="green"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 2: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <BasicIcon
-                    className="gray"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 3: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <BasicIcon
-                    className="opacity0"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 4: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <BasicIcon
-                    className="opacity0"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 5: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <BasicIcon
-                    className="opacity0"
-                    name="checklist-circle"
-                    size="s"
-                  />
-                  <p className="">Leçon 6: Introduction au solfège</p>
-                  <span className={styles.duree}>(1h)</span>
-                </Link>
-              </li>
+              {course?.lesson.map((oneLesson, index) => (
+                <li key={oneLesson.id}>
+                  <Link href={`/course/${course?.id}/${oneLesson.id}`}>
+                    <BasicIcon
+                      className="green"
+                      name="checklist-circle"
+                      size="s"
+                    />
+                    <p className="">{index}: nom leçon</p>
+                    <span className={styles.duree}>(1h)</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="quickNoteModale border">
