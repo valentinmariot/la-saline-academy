@@ -41,8 +41,14 @@ const Lesson = () => {
   }, [lessonListing.data]);
 
   // Get les infos du cours lié à la leçon
-  const useGetCourse = useGetCourseById();
+  const useGetCourse: {
+    data: Course | null | undefined;
+    error: unknown;
+    isLoading: boolean;
+    fetchData: (id: number) => Promise<void>;
+  } = useGetCourseById();
   const [course, setCourse] = useState<Course | undefined>();
+
   useEffect(() => {
     useGetCourse.fetchData(parseInt(courseId as string));
     if (useGetCourse.data) {
@@ -50,6 +56,10 @@ const Lesson = () => {
     }
   }, [lesson?.course.id]);
 
+  /**
+   * Méthode permettant de récupérer le nombre de leçons dans un cours
+   * @returns nombre de leçons
+   */
   const handleNumberLesson = () => {
     if (course?.lesson) {
       for (let i = 0; i <= course?.lesson.length - 1; i++) {
@@ -59,8 +69,15 @@ const Lesson = () => {
         }
       }
     }
+
+    // Cas si il n'y a pas de leçons
+    return 0;
   };
 
+  /**
+   * Méthode permettant de passer à la leçon suivante suite au click
+   * @param id id de la leçon actuelle
+   */
   const handleGoNextLesson = (id: string) => {
     const idActualLesson = parseInt(id);
     if (course?.lesson) {
@@ -115,7 +132,8 @@ const Lesson = () => {
               <div>{lesson?.content || ""}</div>
             </div>
             <div className="dflexcolumn">
-              {handleNumberLesson() < course?.lesson.length ? (
+              {course?.lesson &&
+              handleNumberLesson() < course?.lesson.length ? (
                 <button
                   onClick={() => handleGoNextLesson(lessonId as string)}
                   className="btn btn-purple-link hover-effect ml-auto"

@@ -128,7 +128,7 @@ const Course = () => {
                       name="checklist-circle"
                       size="s"
                     />
-                    <p className="">{index}: nom leçon</p>
+                    <p className="">{index + 1}: nom leçon</p>
                     <span className={styles.duree}>(1h)</span>
                   </Link>
                 </li>
