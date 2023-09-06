@@ -43,7 +43,7 @@ function TagManager() {
         type="text"
         placeholder="Ajouter des instruments"
         value={newTag}
-        onChange={(e) => setNewTag(e.target.value)}
+        onChange={(e: any) => setNewTag(e.target.value)}
         onKeyPress={handleKeyPress}
       />
     </>
