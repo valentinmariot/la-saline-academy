@@ -83,7 +83,7 @@ const Home = () => {
               </Link>
               <nav className={stylesLp.nav}>
                 <Link href="#formations" className="btn btn-gray-link">
-                    Académie
+                    Formations
                 </Link>
                   <Link href="#offres" className="btn btn-gray-link">
                       Offres
