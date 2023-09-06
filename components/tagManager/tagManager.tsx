@@ -3,8 +3,8 @@ import { useState } from "react";
 import InputContainer from "@/components/inputContainer/inputContainer";
 
 function TagManager() {
-  const [tags, setTags] = useState([]);
-  const [newTag, setNewTag] = useState("");
+  const [tags, setTags] = useState<string[]>([]);
+  const [newTag, setNewTag] = useState<string>("");
 
   const handleTagAdd = () => {
     if (newTag.trim() !== "") {
@@ -13,7 +13,7 @@ function TagManager() {
     }
   };
 
-  const handleTagDelete = (tagToDelete: never) => {
+  const handleTagDelete = (tagToDelete: string) => {
     const updatedTags = tags.filter((tag) => tag !== tagToDelete);
     setTags(updatedTags);
   };
@@ -43,7 +43,7 @@ function TagManager() {
         type="text"
         placeholder="Ajouter des instruments"
         value={newTag}
-        onChange={(e) => setNewTag(e.target.value)}
+        onChange={(e: any) => setNewTag(e.target.value)}
         onKeyPress={handleKeyPress}
       />
     </>

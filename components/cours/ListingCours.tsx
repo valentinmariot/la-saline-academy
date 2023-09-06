@@ -40,7 +40,7 @@ const ListingCours: FC<ListingCoursProps> = ({ slice }) => {
         <Card
           key={index}
           title={course.name}
-          href={`/course/${course.name}/${course.id}`}
+          href={`/course/${course.id}`}
           author={"Maxime"}
           desc={course.description}
           tagLink={"TagLink"}

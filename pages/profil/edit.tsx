@@ -89,7 +89,6 @@ const EditProfil = () => {
                   type="text"
                   label="Nom"
                   placeholder="Votre nom"
-                  onChange
                 />
                 <InputContainer
                   required
@@ -97,7 +96,6 @@ const EditProfil = () => {
                   type="text"
                   label="Prénom"
                   placeholder="Votre prénom"
-                  onChange
                 />
               </div>
 
@@ -108,7 +106,6 @@ const EditProfil = () => {
                   type="password"
                   label="Mot de passe actuel"
                   placeholder="Votre mot de passe actuel"
-                  onChange
                 />
                 <InputContainer
                   required
@@ -116,7 +113,6 @@ const EditProfil = () => {
                   type="password"
                   label="Nouveau mot de passe"
                   placeholder="Votre nouveau mot de passe"
-                  onChange
                 />
                 <InputContainer
                   required
@@ -124,7 +120,6 @@ const EditProfil = () => {
                   type="password"
                   label="Confirmer mot de passe"
                   placeholder="Confirmer votre nouveau mot de passe"
-                  onChange
                 />
               </div>
 

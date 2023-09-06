@@ -13,7 +13,7 @@ interface InputContainerProps {
   error?: string;
   type: string;
   required?: boolean;
-  onChange: ChangeEventHandler;
+  onChange?: ChangeEventHandler;
   pattern?: string;
   value?: string;
   onKeyPress?: KeyboardEventHandler<HTMLInputElement>;

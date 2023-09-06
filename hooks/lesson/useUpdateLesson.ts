@@ -35,9 +35,9 @@ const useUpdateUser = <T>(): {
           id: lessonData.id,
           content: lessonData.content,
           order: lessonData.order,
-          points: lessonData.points,
-          videoId: lessonData.videoId,
-          courseId: lessonData.courseId,
+          points: lessonData.point,
+          videoId: lessonData.video.id,
+          courseId: lessonData.course.id,
         }),
       };
       const result = await fetchWrapper<T>(endpoint, config);

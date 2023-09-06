@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { fetchWrapper } from "@/utils/fetchWrapper";
 import { getSession } from "next-auth/react";
 
-const useGetUserById = <T>(): {
+const useGetLessonById = <T>(): {
   data: T | null;
   error: Error | null | unknown;
   isLoading: boolean;
@@ -40,4 +40,4 @@ const useGetUserById = <T>(): {
   }, []);
   return { data, error, isLoading, fetchData };
 };
-export default useGetUserById;
+export default useGetLessonById;

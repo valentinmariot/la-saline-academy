@@ -1,8 +1,15 @@
 export type Lesson = {
-  id?: number;
+  id: number;
   content: string;
+  point: number;
   order: number;
-  points: number;
-  courseId: number;
-  videoId: number;
+  createdAt: Date | undefined;
+  video: {
+    id: number;
+    link: string;
+  };
+  course: {
+    id: number;
+    name: string;
+  };
 };
