@@ -205,7 +205,7 @@
   appearance: none;
   display: none;
 }
-.card_pack{
+.card_pack, .card_pack-lp{
   display: flex;
   cursor: pointer;
   padding: $--3m;
@@ -245,6 +245,19 @@
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
   }
 }
+.card_pack-lp{
+  cursor: auto;
+  gap: 80px;
+  &:hover{
+    border: 1px solid $--gray-800;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+#offres{
+  .lp_container{
+    max-width: 1100px;
+  }
+}
 .input_card_pack[type="radio"]:checked+.card_pack{
   border: 1px solid $--purple-200;
   background: linear-gradient(180deg, rgba(191, 143, 250, 0.15) 0%, rgba(191, 143, 250, 0.45) 100%);
@@ -265,8 +278,18 @@
 .gap24{
   gap: $--3m;
 }
+.gap32{
+  gap: $--4m;
+}
 .lp_container{
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $--10m;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 $--3m;
 }
 .opacity0{
   opacity: 0;
