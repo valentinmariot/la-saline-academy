@@ -4,6 +4,7 @@ import Link from "next/link";
 import ListingCours from "@/components/cours/ListingCours";
 import Template from "@/components/template/template";
 import Tag from "@/components/tag/tag";
+import stylesLp from "@/styles/_pages/lp.module.scss";
 
 const Home = () => {
   const session = useSession();
@@ -68,7 +69,10 @@ const Home = () => {
     );
   } else if (session.status === "unauthenticated") {
     return (
-      <div className="dflexcolumn">
+      <div className={stylesLp.lp + " dflexcolumn "}>
+          <header className={stylesLp.header + " lp_container "}>
+
+          </header>
         <h1>Landing page</h1>
         <Link
           href="/authentification/login"
