@@ -51,6 +51,7 @@ const Course = () => {
     }
   }, [oneCourse.data]);
 
+  console.log("cours", course);
   return (
     <Template title="Cours">
       <h1 className="sr-only">Prendre en main le solvège</h1>
