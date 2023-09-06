@@ -37,7 +37,7 @@ const Profil = () => {
       },
     ],
     pointCourse: "",
-    instrument: []
+    instrument: [],
   });
 
   useEffect(() => {
@@ -53,14 +53,13 @@ const Profil = () => {
 
   useEffect(() => {
     if (getUserById.data) {
-      console.log(getUserById.data, 'from id');
+      console.log(getUserById.data, "from id");
       setUserData({
         ...userData,
         firstname: getUserById.data.firstname,
         lastname: getUserById.data.lastname,
         pointCourse: getUserById.data.points_courses,
-        instrument: getUserById.data.instrument
-
+        instrument: getUserById.data.instrument,
       });
       console.log(userData.userCourse, "userCourse");
     }
@@ -120,13 +119,13 @@ const Profil = () => {
           </div>
           <div id="points" className={styles.points + " bold"}>
             <BasicIcon name="poin" size="m" />
-            {userData.pointCourse} {userData.pointCourse > 1 ? "points" : "point"}
+            {userData.pointCourse}{" "}
+            {userData.pointCourse > 1 ? "points" : "point"}
           </div>
           <div id="tag" className="section_tag">
             {userData.instrument.map((instruments, index) => (
               <Tag key={index} name={instruments.name} href="" />
             ))}
-
           </div>
         </div>
         <hr />
