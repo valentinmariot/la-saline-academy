@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    min-height: 500px;
+    min-height: 550px;
     background-image: url('/hero_pic.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -73,6 +73,9 @@
     &:after{
       background: radial-gradient(62.89% 62.89% at 51.53% 37.11%, rgba(26, 26, 26, 0.25) 0%, #1A1A1A 100%);
     }
+    @media only screen and (max-width: 600px){
+      height: auto;
+    }
   }
   .main{
     display: flex;
@@ -80,6 +83,9 @@
     align-items: center;
     justify-content: flex-start;
     gap: calc(2 * $--10m);
+    @media only screen and (max-width: 1000px){
+      gap: calc($--3m + $--10m);
+    }
     width: 100%;
     .block{
       display: flex;
@@ -88,6 +94,9 @@
       justify-content: flex-start;
       gap: $--10m;
       width: 100%;
+      @media only screen and (max-width: 1000px){
+        gap: $--5m !important;
+      }
       .blockHead{
         display: flex;
         flex-direction: column;
@@ -112,6 +121,18 @@
       }
       @media only screen and (max-width: 900px){
         grid-template-columns: repeat(3, 1fr);
+      }
+      @media only screen and (max-width: 600px){
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        padding-bottom: $--6m;
+        &>*{
+          margin-left: auto;
+          margin-right: auto;
+        }
+        nav{
+          align-items: center;
+        }
       }
     }
   }

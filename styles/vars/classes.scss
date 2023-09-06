@@ -264,6 +264,22 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  @media only screen and (max-width: 1000px){
+    gap: 40px;
+    .purple-icon{
+      span{
+        font-size: 90px !important;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px){
+    gap: $--2m;
+    .purple-icon{
+      span{
+        font-size: 60px !important;
+      }
+    }
+  }
 }
 #formations #bento{
   position: relative;
@@ -279,6 +295,9 @@
     background: radial-gradient(50% 50% at 50% 50%, #D8BBFC 0%, rgba(216, 187, 252, 0.00) 100%);
     transform: translateX(-50%) translateY(-50%);
     z-index: -1;
+    @media only screen and (max-width: 1000px){
+      height: 160%;
+    }
   }
 }
 #offres{
@@ -331,6 +350,9 @@
   width: 100%;
   max-width: 1400px;
   padding: 0 $--3m;
+  @media only screen and (max-width: 1000px){
+    gap: $--5m !important;
+  }
 }
 .opacity0{
   opacity: 0;
