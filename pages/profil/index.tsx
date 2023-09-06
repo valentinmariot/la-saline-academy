@@ -4,30 +4,70 @@ import styles from "styles/_pages/profil.module.scss";
 import Tag from "@/components/tag/tag";
 import Card from "@/components/card/card";
 import Link from "next/link";
-import CardNote from "@/components/cardNote/cardNote";
 import { useEffect, useState } from "react";
 import Template from "@/components/template/template";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import useGetUserByToken from "@/hooks/user/useGetUserByToken";
+import useGetUserMe from "@/hooks/user/useGetUserMe";
+import useGetUserById from "@/hooks/user/useGetUserById";
 
 const Profil = () => {
+  // Hooks API
+  const getUser = useGetUserMe();
+  const getUserById = useGetUserById();
+
   const session = useSession();
   const router = useRouter();
-  const getUser = useGetUserByToken();
 
   const [showAllCardsNote, setShowAllCardsNote] = useState(false);
+  const [userData, setUserData] = useState({
+    id: "",
+    firstname: "",
+    lastname: "",
+    userCourse: [
+      {
+        title: "Prendre en main le solfège",
+        desc: "Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège ",
+        href: "cours/detail",
+      },
+      {
+        title: "Prendre en main le solfège",
+        desc: "Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège ",
+        href: "cours/detail",
+      },
+    ],
+    pointCourse: "",
+    instrument: [],
+  });
 
-  //TODO : fetch Notes from data
-  const cardsNote = [
-    {
-      title: "Prendre en main le solfège",
-      desc: "Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège Ma superbe note liée à la leçon sur l’introduction au solfège ",
-      href: "cours/detail",
-    },
-  ];
+  useEffect(() => {
+    getUser.fetchData();
+  }, []);
 
-  const visibleCardsNote = showAllCardsNote ? cardsNote : cardsNote.slice(0, 4);
+  useEffect(() => {
+    if (getUser.data) {
+      setUserData({ ...userData, id: getUser.data.userId });
+      getUserById.fetchData(userData.id);
+    }
+  }, [getUser.data]);
+
+  useEffect(() => {
+    if (getUserById.data) {
+      console.log(getUserById.data, "from id");
+      setUserData({
+        ...userData,
+        firstname: getUserById.data.firstname,
+        lastname: getUserById.data.lastname,
+        pointCourse: getUserById.data.points_courses,
+        instrument: getUserById.data.instrument,
+      });
+      console.log(userData.userCourse, "userCourse");
+    }
+  }, [getUserById.data]);
+
+  // const visibleCardsNote = showAllCardsNote
+  //   ? userData.userCourse
+  //   : userData.userCourse.slice(0, 4);
   const handleToggleCardsNote = () => {
     setShowAllCardsNote(!showAllCardsNote);
   };
@@ -55,7 +95,7 @@ const Profil = () => {
 
         <div className={styles.infos_profil + " dflexcolumn"}>
           <div className={styles.titre + " dflex w100"}>
-            <h3>Charles-Lucas Maxime</h3>
+            <h3>{userData.firstname + " " + userData.lastname}</h3>
             <Link
               href="profil/edit"
               className="btn btn-purple-link hover-effect"
@@ -65,7 +105,9 @@ const Profil = () => {
             </Link>
           </div>
           <div className={styles.infos}>
-            <div id="nb_cours">4 cours</div>
+            <div id="nb_cours">
+              {userData.userCourse.length + " " + `cours`}
+            </div>
             <div id="type_user" className="italic">
               <BasicIcon name="profile" size="s" />
               Professeur
@@ -77,12 +119,13 @@ const Profil = () => {
           </div>
           <div id="points" className={styles.points + " bold"}>
             <BasicIcon name="poin" size="m" />
-            7890pts
+            {userData.pointCourse}{" "}
+            {userData.pointCourse > 1 ? "points" : "point"}
           </div>
           <div id="tag" className="section_tag">
-            <Tag name="violon" href="" />
-            <Tag name="guitare" href="" />
-            <Tag name="zazz" href="" color="orange" />
+            {userData.instrument.map((instruments, index) => (
+              <Tag key={index} name={instruments.name} href="" />
+            ))}
           </div>
         </div>
         <hr />
@@ -96,52 +139,22 @@ const Profil = () => {
             </a>
           </div>
           <div className="grid_cours">
-            <Card
-              author="Charles-Lucas Maxime"
-              image=""
-              time="30"
-              point="230"
-              language="Français"
-              desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
-              href="cours/detail"
-              tagLink="#"
-              isNew
-              tagName="Violon"
-              title="Prendre en main le solfège"
-            />
-            <Card
-              author="Charles-Lucas Maxime"
-              image=""
-              time="30"
-              point="230"
-              language="Français"
-              desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
-              href="cours/detail"
-              tagLink="#"
-              title="Prendre en main le solfège"
-            />
-            <Card
-              author="Charles-Lucas Maxime"
-              time="30"
-              image=""
-              point="230"
-              language="Français"
-              desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
-              href="cours/detail"
-              tagLink="#"
-              title="Prendre en main le solfège"
-            />
-            <Card
-              author="Charles-Lucas Maxime"
-              time="30"
-              image=""
-              point="230"
-              language="Français"
-              desc="Découvrez l'art de lire et comprendre la musique avec notre cours de solfège en six leçons. Du mystère des notes et des clés à l'interprétation des rythmes, des silences et des altérations, nous vous guidons à travers le labyrinthe du langage musical. Que vous soyez un musicien en herbe ou un virtuose en devenir, notre cours est conçu pour vous aider à déchiffrer les partitions et à enrichir votre expérience musicale. Rejoignez-nous et transformez les symboles et les signes sur le papier en mélodies et harmonies expressives."
-              href="cours/detail"
-              tagLink="#"
-              title="Prendre en main le solfège"
-            />
+            {userData.userCourse.map((course, index) => (
+              <Card
+                key={index}
+                author={userData.firstname}
+                image=""
+                time="30"
+                point="230"
+                language="Français"
+                desc={course.desc}
+                href="cours/detail"
+                tagLink="#"
+                isNew
+                tagName="Violon"
+                title={course.title}
+              />
+            ))}
           </div>
         </div>
         <hr />
@@ -150,14 +163,14 @@ const Profil = () => {
             <BasicIcon name="edit" size="m" /> Quick notes
           </h4>
           <div className={styles.listing_notes + " grid2"}>
-            {visibleCardsNote.map((cardNote, index) => (
-              <CardNote
-                key={index}
-                title={cardNote.title}
-                desc={cardNote.desc}
-                href={cardNote.href}
-              />
-            ))}
+            {/*{visibleCardsNote.map((cardNote, index) => (*/}
+            {/*  <CardNote*/}
+            {/*    key={index}*/}
+            {/*    title={cardNote.title}*/}
+            {/*    desc={cardNote.desc}*/}
+            {/*    href={cardNote.href}*/}
+            {/*  />*/}
+            {/*))}*/}
           </div>
           <button
             className="btn btn-purple-link hover-effect ml-auto"
