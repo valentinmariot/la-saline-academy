@@ -252,10 +252,51 @@
     border: 1px solid $--gray-800;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
   }
+  .purple{
+    background: linear-gradient(250deg, $--purple-200 50%, $--gray-50 125%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .purple-icon{
+    background: linear-gradient(350deg, $--purple-300 50%, $--gray-50 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+#formations #bento{
+  position: relative;
+  &:before{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 200%;
+    width: 100%;
+    max-width: 1100px;
+    content: "";
+    border-radius: 1497.896px;
+    background: radial-gradient(50% 50% at 50% 50%, #D8BBFC 0%, rgba(216, 187, 252, 0.00) 100%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+  }
 }
 #offres{
+  position: relative;
   .lp_container{
     max-width: 1100px;
+  }
+  &:before{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    height: 150%;
+    width: 100%;
+    content: "";
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0.27;
+    z-index: -1;
+    background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, rgba(173, 173, 173, 0.00) 100%);
   }
 }
 .input_card_pack[type="radio"]:checked+.card_pack{
@@ -306,6 +347,21 @@
 }
 .text_center{
   text-align: center;
+}
+.max-width-900{
+  max-width: 900px;
+}
+.max-width-1100{
+  max-width: 1100px;
+}
+.max-width-1400{
+  max-width: 1400px;
+}
+.p-l-24{
+  padding-left: $--3m;
+}
+.p-r-24{
+  padding-right: $--3m;
 }
 .quickNoteModale{
   width: 100%;

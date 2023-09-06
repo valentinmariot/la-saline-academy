@@ -2,7 +2,7 @@ import { FC } from "react";
 
 interface BasicIconProps {
   name: string;
-  size?: "xs" | "s" | "m" | "l" | "xl";
+  size?: "xs" | "s" | "m" | "l" | "xl" | "2xl" | "3xl" | "4xl";
   className?: string;
 }
 

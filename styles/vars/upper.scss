@@ -31,6 +31,15 @@
   &-xl {
     font-size: $--6m;
   }
+  &-2xl {
+    font-size: $--8m;
+  }
+  &-3xl {
+    font-size: calc($--10m + $--4m);
+  }
+  &-4xl {
+    font-size: calc($--10m + $--8m);
+  }
 
   &-announcement:before {
     content: "\e900";
