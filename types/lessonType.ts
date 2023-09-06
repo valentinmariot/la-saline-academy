@@ -5,6 +5,7 @@ export type Lesson = {
   order: number;
   createdAt: Date | undefined;
   video: {
+    id: number;
     link: string;
   };
   course: {
