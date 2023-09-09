@@ -1,12 +1,16 @@
 // Register component
 import useRegister from "@/hooks/authentification/useRegister";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserData } from "@/types/user";
 import RegisterBasic from "@/components/register/RegisterBasic";
 import RegisterPack from "@/components/register/RegisterPack";
 import RegisterBank from "@/components/register/RegisterBank";
 import RegisterInstrument from "@/components/register/RegisterInstrument";
 import useGetUserById from "@/hooks/user/useGetAllUsers";
+import Head from "next/head";
+import styles from "@/styles/_pages/login.module.scss";
+import Link from "next/link";
+import Image from "next/image";
 
 const Register = () => {
   const register = useRegister();
@@ -59,35 +63,50 @@ const Register = () => {
 
   return (
     <>
-      <div>
-        {formStep === 0 && (
-          <div>
-            <RegisterBasic onNext={nextFormStep} />
+      <Head>
+        <title>Inscription - La Saline Academy</title>
+      </Head>
+      <main className={styles.login_page}>
+        <div className={styles.login_page_container}>
+          <Link href="/" className={styles.logo}>
+            <Image
+              src="/logo_saline-academy.svg"
+              alt="Logo de La Saline Academy"
+              width={155}
+              height={46}
+            />
+          </Link>
+          <div className="modalLogin border">
+            {formStep === 0 && (
+              <div className="modalLogin_container">
+                <RegisterBasic onNext={nextFormStep} />
+              </div>
+            )}
+            {formStep === 1 && (
+              <div className="modalLogin_container">
+                <RegisterPack onNext={nextFormStep} />
+              </div>
+            )}
+            {formStep === 2 && userData.planId !== 1 && (
+              <div className="modalLogin_container">
+                <RegisterBank onNext={nextFormStep} userData={userData} />
+              </div>
+            )}
+            {formStep === 3 ||
+              (formStep === 2 && userData.planId === 1 && (
+                <div className="modalLogin_container">
+                  <RegisterInstrument onNext={nextFormStep} />
+                </div>
+              ))}
+            {formStep === 4 ||
+              (formStep === 3 && userData.planId === 1 && (
+                <div className="modalLogin_container">
+                  <h3>Votre compte a été créé avec succès !</h3>
+                </div>
+              ))}
           </div>
-        )}
-        {formStep === 1 && (
-          <div>
-            <RegisterPack onNext={nextFormStep} />
-          </div>
-        )}
-        {formStep === 2 && userData.planId !== 1 && (
-          <div>
-            <RegisterBank onNext={nextFormStep} userData={userData} />
-          </div>
-        )}
-        {formStep === 3 ||
-          (formStep === 2 && userData.planId === 1 && (
-            <div>
-              <RegisterInstrument onNext={nextFormStep} />
-            </div>
-          ))}
-        {formStep === 4 ||
-          (formStep === 3 && userData.planId === 1 && (
-            <div>
-              <h3>Votre compte a été créé avec succès !</h3>
-            </div>
-          ))}
-      </div>
+        </div>
+      </main>
     </>
   );
 };

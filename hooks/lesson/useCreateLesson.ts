@@ -33,9 +33,9 @@ const useCreateLesson = <T>(): {
         body: JSON.stringify({
           content: lesson.content,
           order: lesson.order,
-          points: lesson.points,
-          courseId: lesson.courseId,
-          videoId: lesson.videoId,
+          points: lesson.point,
+          courseId: lesson.course.id,
+          videoId: lesson.video.id,
         }),
       };
       const result = await fetchWrapper<T>(endpoint, config);

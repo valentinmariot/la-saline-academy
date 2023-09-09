@@ -6,13 +6,13 @@ const useGetUserById = <T>(): {
   data: T | null;
   error: Error | null | unknown;
   isLoading: boolean;
-  fetchData: (id: number) => Promise<void>;
+  fetchData: (id: string) => Promise<void>;
 } => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null | unknown>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = useCallback(async (id: number) => {
+  const fetchData = useCallback(async (id: string) => {
     const endpoint = `${process.env.NEXT_PUBLIC_ENDPOINT}user/getById/${id}`;
 
     setIsLoading(true);

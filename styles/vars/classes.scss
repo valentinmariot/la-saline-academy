@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: $--4m;
+  gap: $--2m;
   width: 100%;
   height: auto;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 600px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: $--2m;
+    gap: $--1m;
   }
 }
 
@@ -20,11 +20,34 @@
   width: 100%;
   gap: $--3m;
   height: auto;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 1000px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 600px){
     grid-template-columns: repeat(1, 1fr);
   }
   @media only screen and (max-width: 500px){
-    gap: $--2m;
+    gap: $--1m;
+  }
+}
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  gap: $--2m;
+  height: auto;
+  @media only screen and (max-width: 1400px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 1000px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 600px){
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (max-width: 500px){
+    gap: $--1m;
   }
 }
 
@@ -52,6 +75,12 @@
 .menuOpen{
   transform: translate(0) !important;
 }
+.ml-auto{
+  margin-left: auto;
+}
+.mr-auto{
+  margin-right: auto;
+}
 
 .dnone{
   display: none !important;
@@ -60,22 +89,26 @@
 .dflex{
   display: flex !important;
 }
-
+.nowrap{
+  flex-wrap: nowrap;
+}
+.wrap{
+  flex-wrap: wrap;
+}
 .dflexcolumn{
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: $--4m;
-  h3{
-    text-align: left;
-  }
+  gap: $--2m;
   @media only screen and (max-width: 800px){
-    gap: $--2m;
+    gap: $--1m;
   }
 }
-
+.italic{
+  font-style: italic;
+}
 .disabled{
   pointer-events: none;
   cursor: not-allowed;
@@ -83,7 +116,158 @@
   filter: grayscale(1);
   opacity: 0.3;
 }
-
+.modalLogin{
+  width: 100%;
+  display: flex;
+  padding: $--4m;
+  flex-direction: column;
+  align-items: center;
+  gap: $--4m;
+  border-radius: $--1m;
+  border: 1px solid $--gray-800;
+  background: rgba(26, 26, 26, 0.40);
+  box-shadow: 0 0 $--2m 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur($--1m);
+  .modalLogin_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $--4m;
+    max-width: 450px;
+    width: 100%;
+  }
+  .modalLogin--head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $--2m;
+    *{
+      text-align: center;
+    }
+    .h5{
+      color: $--gray-200 !important;
+    }
+  }
+  p{
+    a{
+      color: $--purple-200;
+    }
+  }
+  @media (max-width: 500px) {
+    gap: $--3m;
+    padding: $--4m $--2m;
+    .modalLogin_container{
+      gap: $--3m;
+    }
+  }
+}
+.button_profil{
+  display: flex;
+  padding: $--3m;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-radius: $--1m;
+  gap: $--1m;
+  font-family: $--title-font;
+  font-size: $--2m;
+  font-weight: 500;
+  color: $--gray-400;
+  background: rgba(51, 51, 51, 0.40);
+  box-shadow: 0 0 32px 0 $--gray-900 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur($--1m);
+  border: 1px solid rgba(128, 128, 128, 0.57);
+  white-space: nowrap;
+  &__active{
+    color: $--purple-200;
+  }
+  &:hover{
+    box-shadow: 0 0 64px 0 $--gray-900 inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  }
+  &__destructive{
+    color: $--red-400 !important;
+  }
+  @media (max-width: 600px){
+    padding: $--1m;
+    border-radius: $--0-5m;
+    font-size: 14px;
+    span{
+      font-size: 16px;
+    }
+  }
+}
+.input_card_pack{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.card_pack{
+  display: flex;
+  cursor: pointer;
+  padding: $--3m;
+  flex-direction: column;
+  align-items: center;
+  gap: $--2m;
+  justify-content: space-between;
+  border-radius: $--2m;
+  border: 1px solid $--gray-800;
+  background: $--gray-900;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  &>div:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: $--2m;
+    width: 100%;
+  }
+  &--title{
+    text-align: left;
+    width: 100%;
+  }
+  p{
+    font-size: 12px;
+    line-height: 16px;
+    color: $--gray-200;
+  }
+  #packActuel{
+    display: none;
+    font-family: $--title-font;
+    font-size: $--2m;
+    text-align: center;
+  }
+  &:hover{
+    border: 1px solid $--gray-600;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.input_card_pack[type="radio"]:checked+.card_pack{
+  border: 1px solid $--purple-200;
+  background: linear-gradient(180deg, rgba(191, 143, 250, 0.15) 0%, rgba(191, 143, 250, 0.45) 100%);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  #choisir{
+    display: none;
+  }
+  #packActuel{
+    display: block;
+  }
+}
+.gap8{
+  gap: $--1m;
+}
+.gap16{
+  gap: $--2m;
+}
+.gap24{
+  gap: $--3m;
+}
+.opacity0{
+  opacity: 0;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -93,4 +277,72 @@
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+.text_center{
+  text-align: center;
+}
+.quickNoteModale{
+  width: 100%;
+  display: flex;
+  padding: $--2m;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $--2m;
+  align-self: stretch;
+  border-radius: $--1m;
+  background: $--gray-800;
+  box-shadow: 0 0 32px 0 #1A1A1A inset, 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  &--title{
+    font-size: $--3m;
+  }
+  &--blockLecon{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: $--1m;
+    &--titre{
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0;
+      @include lineClamp(1);
+      @media only screen and (max-width: 1200px){
+        font-size: 16px;
+      }
+      @media only screen and (max-width: 800px){
+        font-size: 15px;
+      }
+      @media only screen and (max-width: 500px){
+        font-size: 14px;
+      }
+    }
+    p, b, u , i{
+      font-size: 12px !important;
+      line-height: $--2m;
+      font-family: $--text-font;
+      @include lineClamp(3);
+    }
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+  h1, h2, h3, h4, h5, h6{
+    color: $--gray-500;
+    font-family: $--text-font !important;
+    font-weight: 700;
+  }
+
+}
+#TopWhiteOvalBlurry{
+  left: 0;
+  top: 0;
+}
+#whiteOvalBlurry, #TopWhiteOvalBlurry{
+  position: fixed;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
 }

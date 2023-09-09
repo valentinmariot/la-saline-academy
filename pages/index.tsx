@@ -1,41 +1,42 @@
-import BasicIcon from "@/components/basicIcon/basicIcon";
-import Head from "next/head";
+import React from "react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Home = () => {
-  return (
-    <>
-      <Head>
-        <title>Accueil - La Saline Academy</title>
-      </Head>
+  const session = useSession();
 
-      <h1>Title1 - Gotham Bold (5m)</h1>
-      <h2>Titre h2</h2>
-      <h3>Titre h3</h3>
-      <h4>Titre h4</h4>
-      <h5>Titre h5</h5>
-      <span>span</span>
-      <b>Bold</b>
-      <p>Paragraphe</p>
-      <i>Italic</i>
-      <u>underline</u>
-
-      <a href="" className="btn btn-purple-solid">
-        <BasicIcon name="tiktok" />
-        Tiktok
-      </a>
-
-      <h1>Title1 - Gotham Bold (5m)</h1>
-      <h2>Titre h2</h2>
-      <h3>Titre h3</h3>
-      <h4>Titre h4</h4>
-      <h5>Titre h5</h5>
-      <span>span</span>
-      <b>Bold</b>
-      <p>Paragraphe</p>
-      <i>Italic</i>
-      <u>underline</u>
-    </>
-  );
+  if (session.status === "authenticated") {
+    return (
+      <div className="dflexcolumn">
+        <h3>Les Cours</h3>
+        <Link href="/course" className="btn btn-purple-link hover-effect">
+          Cours
+        </Link>
+        <h3>Profil</h3>
+        <Link href="/profil" className="btn btn-purple-link hover-effect">
+          profil
+        </Link>
+      </div>
+    );
+  } else if (session.status === "unauthenticated") {
+    return (
+      <div className="dflexcolumn">
+        <h1>Landing page</h1>
+        <Link
+          href="/authentification/login"
+          className="btn btn-purple-link hover-effect"
+        >
+          Se connecter
+        </Link>
+        <Link
+          href="/authentification/register"
+          className="btn btn-purple-solid-intense"
+        >
+          Inscription
+        </Link>
+      </div>
+    );
+  }
 };
 
 export default Home;

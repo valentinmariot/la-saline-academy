@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ChangeEventHandler, FC, KeyboardEventHandler } from "react";
 import BasicIcon from "../basicIcon/basicIcon";
 
 import styles from "./inputContainer.module.scss";
@@ -13,8 +13,10 @@ interface InputContainerProps {
   error?: string;
   type: string;
   required?: boolean;
+  onChange?: ChangeEventHandler;
+  pattern?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress?: KeyboardEventHandler<HTMLInputElement>;
 }
 
 const InputContainer: FC<InputContainerProps> = ({
@@ -27,8 +29,10 @@ const InputContainer: FC<InputContainerProps> = ({
   type,
   required,
   error,
-  value,
   onChange,
+  pattern,
+  value,
+  onKeyPress,
 }) => {
   return (
     <div className={styles.input}>
@@ -46,8 +50,10 @@ const InputContainer: FC<InputContainerProps> = ({
           disabled={disabled}
           required={required}
           className={icon && styles.withIcon}
-          value={value}
           onChange={onChange}
+          pattern={pattern}
+          value={value}
+          onKeyPress={onKeyPress}
         />
       </div>
       {error && <span className={styles.input_error}>{error}</span>}

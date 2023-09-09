@@ -32,12 +32,10 @@ export default NextAuth({
             },
           };
           const user: any = await fetchWrapper(endpoint, config);
-          console.log("API response data:", user);
           if (user) {
             return user;
           }
         } catch (error: any) {
-          console.log("API response status:", error?.status);
           throw new Error(error?.message);
         }
 
@@ -55,7 +53,6 @@ export default NextAuth({
       if (account) {
         const typeUser = user as any;
         token.accessToken = typeUser.token;
-        console.log(token, "toto");
       }
       return token;
     },
@@ -63,7 +60,6 @@ export default NextAuth({
     async session({ session, token }: any) {
       // Send properties to the client, like an access_token and user id from a provider.
       session.accessToken = token.accessToken;
-      console.log(session);
       return session;
     },
   },

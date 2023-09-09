@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputContainer from "../inputContainer/inputContainer";
 import { UserData } from "@/types/user";
+import Link from "next/link";
 
 type RegisterBasicProps = {
   onNext: (data: Partial<UserData>) => void;
@@ -71,18 +72,18 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
 
   return (
     <>
-      <div>
-        <h2>Bienvenue !</h2>
-        <p>
-          Avant de commencer à naviguer sur la plateforme, on a besoin d’un peu
-          plus d’informations.
-        </p>
-        <p>
-          Ce formulaire ne devrait pas prendre plus de 3 minutes à compléter
-          alors c’est parti pour un onboarding rapide :
-        </p>
+      <div className="modalLogin--head">
+        <h1 className="h2">Bienvenue !</h1>
+        <h2 className="h5">
+          Avant de commencer à naviguer sur la plateforme, on a besoin
+          d’un peu plus d’informations.
+        </h2>
+        <h3 className="h5">
+          Ce formulaire ne devrait pas prendre plus de 3 minutes à
+          compléter alors c’est parti pour un onboarding rapide :
+        </h3>
       </div>
-      <div>
+      <div className="grid2">
         <InputContainer
           id="lastname"
           label="Nom"
@@ -105,11 +106,14 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
           onChange={(e) => handleInputChange("firstname", e.target.value)}
           error={validateField("firstname", formValues.firstname)}
         />
+      </div>
+      <div className="grid2">
         <InputContainer
           id="email"
           label="E-mail"
           labelFor="email"
           placeholder="votre@email.fr"
+          pattern=".+@globex\.com"
           type="email"
           required
           value={formValues.email}
@@ -131,6 +135,20 @@ const RegisterBasic: React.FC<RegisterBasicProps> = ({ onNext }) => {
       <button className="btn btn-purple-solid-intense" onClick={handleNext}>
         Suite
       </button>
+      <p className="text_center">
+        Votre adresse e-mail ne sera utilisée pour rien d’autre, promis
+        !
+      </p>
+
+      <p className="text_center">
+        Vous avez déjà un compte ?{" "}
+        <Link
+          href="/authentification/login"
+          className="btn-purple-link hover-effect"
+        >
+          Connectez-vous !
+        </Link>
+      </p>
     </>
   );
 };

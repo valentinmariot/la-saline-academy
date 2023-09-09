@@ -6,7 +6,11 @@
     align-items: flex-start;
     gap: $--1m;
     text-align: left;
-
+    width: 100%;
+    max-width: 220px;
+    @media (max-width: 500px) {
+        max-width: 100%;
+    }
     &__label {
         font-size: $--2m;
         font-weight: 500;
@@ -56,6 +60,20 @@
         }
         .withIcon{
             padding: $--1m $--2m $--1m $--6m;
+        }
+        @media (max-width: 800px){
+            gap: $--1m;
+            span{
+                left: $--1m;
+                font-size: $--2m;
+            }
+            &>input {
+                font-size: 14px;
+                padding: $--1m;
+            }
+            .withIcon{
+                padding: $--1m $--1m $--1m $--4m;
+            }
         }
     }
     &_error {

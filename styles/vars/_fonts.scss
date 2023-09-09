@@ -29,11 +29,3 @@
 $--bold-title-font: 'GothamBold', 'Gotham', Helvetica, Roboto, serif;
 $--title-font: 'Gotham', Helvetica, Roboto, serif;
 $--text-font: 'Helvetica', Roboto, serif;
-
-$--font-size: 18px;
-@media only screen and (max-width: 800px){
-  $--font-size: 16px;
-}
-@media only screen and (max-width: 500px){
-  $--font-size: 1$--0-5m;
-}

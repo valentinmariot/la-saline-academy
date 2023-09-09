@@ -12,6 +12,7 @@
   font-weight: 500;
   line-height: normal;
   font-family: $--title-font;
+  white-space: nowrap;
   &-purple{
     &-solid{
       color: $--gray-50;
@@ -41,12 +42,18 @@
 
     }
     &-link{
-
+      padding: 0 !important;
+      gap: $--0-5m;
+      color: $--purple-100;
+      font-size: 12px;
+      &:hover{
+        color: $--purple-200;
+      }
     }
   }
 
   &-gray{
-
+    color: $--gray-100;
     &-solid{
 
       &-intense{
@@ -57,23 +64,56 @@
 
     }
     &-link{
-
+      padding: 0;
+      gap: $--0-5m;
+      color: $--gray-100;
+      font-size: 12px;
+      &:before{
+        background: $--gray-200 !important;
+      }
+      &:hover{
+        color: $--gray-200;
+      }
     }
   }
 
   &-red{
 
     &-solid{
-
+      color: $--gray-50;
+      border: 1px solid $--red-200;
+      background: $--red-900;
+      box-shadow: 0px -3px 20px -2px #BF220D inset;
+      &:hover{
+        box-shadow: 0px -3px 22px -2px #F1503C inset, 0px 0px 16px 0px #8F190A;
+      }
+      &:focus, &:active{
+        background: $--red-700;
+      }
       &-intense{
-
+        color: $--gray-50;
+        border: 1px solid $--red-200;
+        background: $--red-900;
+        box-shadow: 0px -3px 22px -2px #F1503C inset, 0px 0px 16px 0px #F1503C;
+        &:hover{
+          box-shadow: 0px -3px 22px -2px #F1503C inset, 0px 0px 16px 0px #F1503C;
+          &:focus, &:active{
+            background: $--red-700;
+          }
+        }
       }
     }
     &-ghost{
 
     }
     &-link{
-
+      padding: 0 !important;
+      gap: $--0-5m;
+      color: $--red-400;
+      font-size: 12px;
+      &:hover{
+        color: $--red-500;
+      }
     }
   }
 
@@ -95,5 +135,12 @@
 
   &-disable{
 
+  }
+  @media (max-width: 800px){
+    padding: $--1m $--1-5m;
+    font-size: 14px;
+    span{
+      font-size: $--2m;
+    }
   }
 }

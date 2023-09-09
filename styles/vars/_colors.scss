@@ -1,6 +1,6 @@
 // --- C O L O R S --- //
 
-  /*gray color*/
+  /*gray*/
   $--gray-50: #F2F2F2;
   $--gray-100: #DBDBDB;
   $--gray-200: #C4C4C4;
@@ -12,7 +12,7 @@
   $--gray-800: #333333;
   $--gray-900: #1A1A1A;
 
-  /*purple color*/
+  /*purple*/
   $--purple-50: #F1E7FE;
   $--purple-100: #D8BBFC;
   $--purple-200: #BF8FFA;
@@ -24,7 +24,7 @@
   $--purple-800: #2F0462;
   $--purple-900: #170231;
 
-  /*green color*/
+  /*green*/
   $--green-50: #EDF7F0;
   $--green-100: #CDEAD6;
   $--green-200: #ACDCBB;
@@ -36,7 +36,7 @@
   $--green-800: #1E482B;
   $--green-900: #0F2416;
 
-  /*red color*/
+  /*red*/
   $--red-50: #FDEAE7;
   $--red-100: #FAC3BC;
   $--red-200: #F79D91;
@@ -48,24 +48,36 @@
   $--red-800: #5F1107;
   $--red-900: #300803;
 
-  /*other colors*/
-  $--orange: #FF9900;
+  /*orange*/
+    $--orange-50: #FFF5E5;
+    $--orange-100: #FFE2B8;
+    $--orange-200: #FFD08A;
+    $--orange-300: #FFBE5C;
+    $--orange-400: #FFAB2E;
+    $--orange-500: #FF9900;
+    $--orange-600: #CC7A00;
+    $--orange-700: #995C00;
+    $--orange-800: #663D00;
+    $--orange-900: #331F00;
 
 .white{
   color: $--gray-50;
+}
+.gray{
+  color: $--gray-500;
 }
 .black{
   color: $--gray-900;
 }
 .purple{
-  color: $--purple-500;
+  color: $--purple-200;
 }
 .green{
-  color: $--green-500;
+  color: $--green-400;
 }
 .red{
-  color: $--red-500;
+  color: $--red-400;
 }
 .orange{
-  color: $--orange;
+  color: $--orange-500;
 }
