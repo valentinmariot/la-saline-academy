@@ -4,7 +4,6 @@ import BasicIcon from "../basicIcon/basicIcon";
 import InputContainer from "../inputContainer/inputContainer";
 import Link from "next/link";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
 import styles from "./header.module.scss";
 
 interface HeaderProps {
@@ -12,7 +11,6 @@ interface HeaderProps {
 }
 
 const Header = ({ onBurgerMenuClick }: HeaderProps) => {
-
   const handleChangeSearch = (e: any) => {
     console.log(e);
   };
