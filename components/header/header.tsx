@@ -12,10 +12,6 @@ interface HeaderProps {
 }
 
 const Header = ({ onBurgerMenuClick }: HeaderProps) => {
-  const handleSignOut = () => {
-    signOut();
-    window.location.reload();
-  };
 
   const handleChangeSearch = (e: any) => {
     console.log(e);
@@ -52,13 +48,6 @@ const Header = ({ onBurgerMenuClick }: HeaderProps) => {
           <BasicIcon name="profile" />
           Mon profil
         </Link>
-        <button
-          onClick={handleSignOut}
-          className="btn btn-purple-solid-intense"
-        >
-          <BasicIcon name="logout" />
-          Se deconnecter
-        </button>
       </header>
     </>
   );
